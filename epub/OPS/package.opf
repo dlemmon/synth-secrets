@@ -6,7 +6,7 @@
     <dc:title>Synth Secrets</dc:title>
     <dc:creator opf:role="aut">Gordon Reid</dc:creator>
     <dc:language>en</dc:language>
-    <dc:identifier id="bookid">synthsecrets-sos-gr-mj</dc:identifier>
+    <dc:identifier id="bookid">D10FA974-619C-4121-BED6-6D2028D18EFB</dc:identifier>
   </metadata>
 
   <manifest>
@@ -17,6 +17,7 @@
     <item id="ch-001" href="ch-001.xhtml" media-type="text/xhtml+xml" />
     <item id="ch-002" href="ch-002.xhtml" media-type="text/xhtml+xml" />
     <item id="ch-003" href="ch-003.xhtml" media-type="text/xhtml+xml" />
+    <item id="ch-004" href="ch-004.xhtml" media-type="text/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -27,5 +28,6 @@
     <itemref idref="ch-001" linear="yes" />
     <itemref idref="ch-002" linear="yes" />
     <itemref idref="ch-003" linear="yes" />
+    <itemref idref="ch-004" linear="yes" />
   </spine>
 </package>

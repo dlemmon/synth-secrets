@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="bookid">
+  <metadata>
+    <meta name="cover" content="cover-image" />
+    <dc:title>Synth Secrets</dc:title>
+    <dc:creator opf:role="aut">Gordon Reid</dc:creator>
+    <dc:language>en</dc:language>
+    <dc:identifier id="bookid">synthsecrets-sos-gr-mj</dc:identifier>
+  </metadata>
+
+  <manifest>
+    <!-- table of contents -->
+    <item id="toc" href="toc.xhtml" media-type="text/xhtml+xml" />
+
+    <!-- chapters -->
+    <item id="ch-001" href="ch-001.xhtml" media-type="text/xhtml+xml" />
+
+    <!-- styles -->
+    <item id="stylesheet" href="css/book.css" media-type="text/css" />
+  </manifest>
+
+  <spine>
+    <itemref idref="toc" linear="yes" />
+    <itemref idref="ch-001" linear="yes" />
+  </spine>
+</package>

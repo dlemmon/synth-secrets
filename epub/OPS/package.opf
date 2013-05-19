@@ -15,6 +15,7 @@
 
     <!-- chapters -->
     <item id="ch-001" href="ch-001.xhtml" media-type="text/xhtml+xml" />
+    <item id="ch-002" href="ch-002.xhtml" media-type="text/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -23,5 +24,6 @@
   <spine>
     <itemref idref="toc" linear="yes" />
     <itemref idref="ch-001" linear="yes" />
+    <itemref idref="ch-002" linear="yes" />
   </spine>
 </package>

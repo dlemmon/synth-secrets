@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
   <head>
-    <title>3. Modifiers & Controllers</title>
+    <title>3. Modifiers &amp; Controllers</title>
     <link rel="stylesheet" type="text/css" href="css/book.css" />
   </head>
 
   <body>
-    <section class="chapter" title="3. Modifiers & Controllers" epub:type="chapter" id="ch-003">
-      <h2 class="title">3. Modifiers & Controllers</h2>
+    <section class="chapter" title="3. Modifiers &amp; Controllers" epub:type="chapter" id="ch-003">
+      <h2 class="title">3. Modifiers &amp; Controllers</h2>
 
       <p>If you have stuck with me for the past two chapters, you’ll know that most natural sounds have complex harmonic structures, and that these derive from the nature of the object making the sound. You’ll also appreciate that, no matter how you play them or what you do when you record them, percussion instruments will have significantly different tones from strings, pipes, and other ‘conventional’ instruments. But this knowledge is far from sufficient to allow you to understand and create the sounds you want artificially, with a synthesizer; you also need to know about the controllers and modifiers that shape the sounds you hear. Look at it this way… if you could define a sound purely by listing all the harmonics it was composed of, manufacturers wouldn’t waste money putting all those ‘unnecessary’ filters and envelope generators and stuff in their products. So let’s move on, and find out about how you can tailor a series of synth-derived oscillations into something more musical.</p>
 
@@ -41,16 +41,16 @@
         <p>By contrast, the trombone ‘speaks’ more slowly, and its loudness usually peaks at the end of the attack stage before falling back to a lower, sustained level. When the player stops blowing, the sound rapidly falls back to silence.</p>
         <p>Quiet different from either of these, the loudness of a thunderclap often develops relatively slowly, and there are no decay or sustain stages; once it has peaked, the loudness dies away slowly.</p>
         <p>As you can see from <a href="#fig-3-5">Figure 3.5</a>, these contours are fundamentally different from one another. Let’s take the trombone envelope first. This requires all four ADSR parameters, with moderate attack, decay and release times and a moderate sustain level. The organ envelope is clearly simpler, and requires just three of the ADSR envelope’s parameters, with virtually instantaneous attack and release, and a maximum sustain level. In contrast, the thunderclap only utilises two parameters. It has no Sustain or Release values (actually, this isn’t always true, but we’ll discuss that in a later part of this series).</p>
-        <p>However you set the parameters of the envelope generator in your synth, if it is connected to the VCA, it has simply replaced the general term ‘controller’ in <a href="#fig-3.2">Figure 3.2</a>. Provided that you can trigger it at will, you have a device that will shape this aspect of your sound whenever you want.</p>
+        <p>However you set the parameters of the envelope generator in your synth, if it is connected to the VCA, it has simply replaced the general term ‘controller’ in <a href="#fig-3-2">Figure 3.2</a>. Provided that you can trigger it at will, you have a device that will shape this aspect of your sound whenever you want.</p>
       </section>
 
-      <section class="sub-chapter" epub:type="division" id="ch-003-003">
+      <section class="sub-chapter" epub:type="division" id="ch-003-sc-003">
         <h3>Low frequency oscillators and tremelo</h3>
 
         <p>Let’s return for a moment to the concepts relating to oscillators, described in chapter 1. You will remember that every harmonic sound has a fundamental frequency that is the simplest mode of vibration of the oscillator producing it. If this fundamental lies in the range of approximately 20Hz (20 vibrations per second) to 20kHz (20,000 vibrations per second) you should hear the sound as an audible tone.</p>
         <p>Now consider again the hi-fi amplifier and its volume knob. If you swing the control from side to side once or twice per second you will introduce a new, periodic effect to the sound: that of tremolo. You are, in essence, applying an oscillator to the hi-fi’s volume. And although the frequency of this oscillator is much less than 20Hz, its effect is clearly musically important.</p>
         <p>It should come as no surprise, therefore, to find that most synthesizers have dedicated devices – Low-Frequency Oscillators (LFOs) – generating low-frequency signals that control many of the synth’s other functions. On most instruments, the LFO(s) produce oscillations in a range of frequencies lying between about 0.1Hz (one cycle every ten seconds) and 20Hz. These are suitable for producing relatively simple sonic effects, and as you can see in <a href="#fig-3-7">Figure 3.7</a>, tremolo is just a more specific example of the setup shown <a href="#fig-3-6">Figure 3.6</a>: in this case, it’s an LFO rather than an EG controlling the gain of the amplifier.</p>
-        <p>Trivial though <a href="#fig-3.7">Figure 3.7</a> may be to most readers, it also demonstrates the three types of modules present in all synthesizers. In this configuration:</p>
+        <p>Trivial though <a href="#fig-3-7">Figure 3.7</a> may be to most readers, it also demonstrates the three types of modules present in all synthesizers. In this configuration:</p>
         <ul>
           <li>The Tone Generator is a <em>Signal Generator</em> – it produces the basic audio tone;</li>
           <li>The Voltage Controlled Amplifier is an example of a <em>Modifier</em> – it changes the audio signal in some way;</li>
@@ -60,7 +60,7 @@
         <p>The LFOs on more powerful synths are often capable of producing higher-frequency oscillations that stray well into the audio range. Furthermore, these LFOs often offer a wide range of waveforms. But if you can modulate a signal with an audio-frequency LFO, why can’t you use another Tone Generator to do so? Of course, there’s no reason why you shouldn’t, and the architecture in <a href="#fig-3-8">Figure 3.8</a> allows you to create the complex sounds alluded to above.</p>
       </section>
 
-      <section class="sub-chapter" epub:type="division" id="ch-003-004">
+      <section class="sub-chapter" epub:type="division" id="ch-003-sc-004">
         <h3>…And the point is…?</h3>
 
         <p>Although this article has never strayed from the basics, three major concepts have been introduced: Control Voltages, Envelope Generators, and Low Frequency Oscillators. But these are not the most important lessons to learn.</p>

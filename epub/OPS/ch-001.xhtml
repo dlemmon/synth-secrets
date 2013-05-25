@@ -30,10 +30,35 @@
         <h3>Let’s get plucking</h3>
 
         <p>To start answering this, let’s consider a stretched string that is fixed at both ends, but free to vibrate along its length. <a href="#fig-1-1">Figure 1.1</a> shows such a string at rest.</p>
+        <figure id="fig-1-1">
+          <img src="images/fig-1-1.png" />
+          <figcaption>Figure 1.1</figcaption>
+        </figure>
+
         <p>Now imagine that we gently pluck the string exactly halfway between the ends. As you might imagine, this causes it to vibrate in the way shown in <a href="#fig-1-2">Figure 1.2</a>.</p>
+        <figure id="fig-1-2">
+          <img src="images/fig-1-2.png" />
+          <figcaption>Figure 1.2</figcaption>
+        </figure>
+
         <p>This is an example of a ‘standing wave’. It does not run up and down the string like waves on the surface of the sea, but vibrates up and down. If the vibration (or ‘oscillation’) is as simple as that shown in <a href="#fig-1-2">Figure 1.2</a>, a point at the centre of the string moves in a simple, repeating pattern called a sine wave (see <a href="#fig-1-3">Figure 1.3</a>). We call this pattern the oscillation’s ‘waveform’, and the frequency with which the waveform completes one ‘cycle’ is called the ‘fundamental’ frequency of the string.</p>
+        <figure id="fig-1-3">
+          <img src="images/fig-1-3.png" />
+          <figcaption>Figure 1.3</figcaption>
+        </figure>
+
         <p>The fundamental mode is, however, not the only way in which the string can vibrate – although because it is fixed at both ends, the number of ways and the speeds with which it can do so are severely constrained. Imagine placing your finger in the exact centre of the string (but so that the string can still vibrate along its entire length) and plucking it on one side or the other. You can see from <a href="#fig-1-4">Figure 1.4</a> that a standing wave with half the wavelength of the original looks perfectly feasible.</p>
+        <figure id="fig-1-4">
+          <img src="images/fig-1-4.png" />
+          <figcaption>Figure 1.4</figcaption>
+        </figure>
+
         <p>Likewise, if you place your finger one-third of the way along the string, a standing wave of one-third the wavelength of the original should be possible (<a href="#fig-1-5">Figure 1.5</a>) and so on.</p>
+        <figure id="fig-1-5">
+          <img src="images/fig-1-5.png" />
+          <figcaption>Figure 1.5</figcaption>
+        </figure>
+
         <p>Indeed, these standing waves can exist at all the integer divisions of the wave shown in <a href="#fig-1-2">Figure 1.2</a>, and we call these the ‘harmonics’ of the fundamental frequency.</p>
         <p>If you study the maths of standing waves, you’ll discover that you can represent such a wave as two ‘running’ waves moving in opposite directions along the string (no, don’t ask why, or we’ll be here until page 304). Knowing this, however, leads us to a simple conclusion: if you halve the wavelength, the frequency of the ‘running’ waves required will double. Similarly, if you divide the wavelength by a factor of three, you triple the frequency; quarter the wavelength and you multiply the frequency by four, and so on... Only whole numbers will work because, if you tried to introduce a non-integer change in the frequency, the string would need to be somewhere other than at the zero position at one of its ends (ie. part of the way through an complete cycle), and this isn’t possible because, of course, the ends are fixed.</p>
         <p>Anyway, we’ve now answered our first question by identifying the harmonics which can be produced by a simple oscillator: they are the permissible modes of vibration. Of course, this analysis doesn’t only apply to a vibrating string. Consider the air in an enclosed space such as a cubic room. Forgetting for a moment any complicating factors such as furniture, the air can vibrate anywhere in the room except at the walls, floor, and ceilings. In other words, the vibrations in the room are constrained in the same way as those on a string. This is why regular rooms have ‘resonances’ – they are the harmonic frequencies of the room itself. And this is why cathedral organs work – pipes are also simple harmonic oscillators.</p>
@@ -54,50 +79,33 @@
         <h3>Subtractive synthesis</h3>
 
         <p>So let's apply these ideas to a synthesizer. Look at the waveform in <a href="#fig-1-6">Figure 1.6</a>. You would never get this from a plucked string, but you'll find an approximation to it on almost every synthesizer ever built. It's an ideal 'sawtooth' wave, so named because of its shape.</p>
+        <figure id="fig-1-6">
+          <img src="images/fig-1-6.png" />
+          <figcaption>Figure 1.6</figcaption>
+        </figure>
+
         <p>This waveform has a simple harmonic relationship, expressed as follows:</p>
         <blockquote>Every harmonic is present, and the amplitude of the nth harmonic is 1/n times that of the fundamental.</blockquote>
         <p>OK, so it doesn't look so simple when written in English but, believe me, there are far nastier ones than this. Anyway, <a href="#fig-1-7">Figure 1.7</a> shows the first 10 harmonics in a sawtooth wave, and you can see how they taper off at higher and higher frequencies.</p>
+        <figure id="fig-1-7">
+          <img src="images/fig-1-7.png" />
+          <figcaption>Figure 1.7</figcaption>
+        </figure>
+
         <p>But what happens if you truncate this series of harmonics? Let's say you remove all but the first five of them (for which you need a device called a 'filter'). <a href="#fig-1-8">Figure 1.8</a> shows this spectrum, and <a href="#fig-1-9">Figure 1.9</a> shows the waveform to which it corresponds.</p>
+        <figure id="fig-1-8">
+          <img src="images/fig-1-8.png" />
+          <figcaption>Figure 1.8</figcaption>
+        </figure>
+        <figure id="fig-1-9">
+          <img src="images/fig-1-9.png" />
+          <figcaption>Figure 1.9</figcaption>
+        </figure>
+
         <p>As you can see, the new waveform looks different from the sawtooth wave. It sounds different too. But the only difference between them is that you have truncated the harmonic series of the sawtooth so that only the first handful of harmonics remain. In other words, you have used a 'filter' to 'subtract' harmonics, thereby creating a new waveform, and thus a new sound.</p>
         <p>Welcome to the world of subtractive synthesis!</p>
       </section>
 
-      <figure id="fig-1-1">
-        <img src="images/fig-1-1.png" />
-        <figcaption>Fig. 1.1</figcaption>
-      </figure>
-      <figure id="fig-1-2">
-        <img src="images/fig-1-2.png" />
-        <figcaption>Fig. 1.2</figcaption>
-      </figure>
-      <figure id="fig-1-3">
-        <img src="images/fig-1-3.png" />
-        <figcaption>Fig. 1.3</figcaption>
-      </figure>
-      <figure id="fig-1-4">
-        <img src="images/fig-1-4.png" />
-        <figcaption>Fig. 1.4</figcaption>
-      </figure>
-      <figure id="fig-1-5">
-        <img src="images/fig-1-5.png" />
-        <figcaption>Fig. 1.5</figcaption>
-      </figure>
-      <figure id="fig-1-6">
-        <img src="images/fig-1-6.png" />
-        <figcaption>Fig. 1.6</figcaption>
-      </figure>
-      <figure id="fig-1-7">
-        <img src="images/fig-1-7.png" />
-        <figcaption>Fig. 1.7</figcaption>
-      </figure>
-      <figure id="fig-1-8">
-        <img src="images/fig-1-8.png" />
-        <figcaption>Fig. 1.8</figcaption>
-      </figure>
-      <figure id="fig-1-9">
-        <img src="images/fig-1-9.png" />
-        <figcaption>Fig. 1.9</figcaption>
-      </figure>
     </section>
   </body>
 </html>

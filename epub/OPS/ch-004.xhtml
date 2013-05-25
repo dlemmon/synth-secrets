@@ -20,10 +20,29 @@
         <h3>Just a phase</h3>
 
         <p>Let’s start by considering what happens when you combine two sine waves using a simple mixer. As you might imagine and as you can see in <a href="#fig-4-1">Figure 4.1</a>, adding together two identical waves produces the same sound, but louder. But what happens if you start the lower wave halfway through the cycle of the upper one? <a href="#fig-4-2">Figure 4.2</a> shows that, if you add these waves together, they cancel each other out, and you hear nothing. Although, in isolation, these signals would sound identical, combining them results in silence.</p>
+        <figure id="fig-4-1">
+          <img src="images/fig-4-1.png" />
+          <figcaption>Figure 4.1</figcaption>
+        </figure>
+
         <p>This is an important result, which demonstrates that while you can describe a single sine wave by specifying just its frequency and amplitude, if you combine two or more waves you must consider their relative offset. This offset is usually called the ‘phase’ of one wave with respect to the other, and is expressed in degrees, like the ones used to describe angles (if you want to know why, have a look at the ‘Expressing Phase In Degrees’ box below, but if you can’t be bothered with another technical explanation at this point, read on).</p>
         <p>Of course, you can mix sine waves with any offset (ie. any phase difference) and the amplitude of the result will lie somewhere between the ‘double’ loudness of <a href="#fig-4-1">Figure 4.1</a> and the silence of <a href="#fig-4-2">Figure 4.2</a> (if, instead of combining the signals in mono, you play the waves independently through stereo speakers, you’ll get a quite different result. But that’s a topic for another day, and we won’t discuss it further here).</p>
+        <figure id="fig-4-2">
+          <img src="images/fig-4-2.png" />
+          <figcaption>Figure 4.2</figcaption>
+        </figure>
+
         <p>Instead, let’s consider this offset as a timing difference. Let’s say that our sine waves have a frequency of 100Hz or, to use older terminology, oscillate at a frequency of 100 cycles per second. We can say, therefore, that each cycle takes 0.01 seconds and, for these signals, an offset of half a cycle (a phase shift of 180º, if you’ve read that box yet, and if you haven’t, don’t worry) is equivalent to a time shift of 0.005 seconds or, as it is more commonly expressed, 5 milliseconds. <a href="#fig-4-3">Figure 4.3</a> should help to make this clearer.</p>
+        <figure id="fig-4-3">
+          <img src="images/fig-4-3.png" />
+          <figcaption>Figure 4.3</figcaption>
+        </figure>
+
         <p>But now consider a different pair of sine waves at twice the frequency of the first. These have a frequency of 200Hz, and so five milliseconds is now sufficient time to complete a full cycle. In this case, as shown in <a href="#fig-4-4">Figure 4.4</a> on page 116, our two sine waves add if one is delayed by 0.005 seconds.</p>
+        <figure id="fig-4-4">
+          <img src="images/fig-4-4.png" />
+          <figcaption>Figure 4.4</figcaption>
+        </figure>
 
         <blockquote>
           <h4>Expressing Phase In Degrees</h4>
@@ -38,6 +57,11 @@
         <p>This is a stunning result, quite at odds with much perceived wisdom. So this month’s first Synth Secret is:</p>
         <p>Combining complex ‘out of phase’ signals does not necessarily lead to complete cancellation. In fact, in the real world, it rarely, if ever, does so.</p>
         <p>Yet even this result is one of the simplest cases of phase-shifting you can consider. Imagine how much more complex the result becomes when you apply these ideas to a complex waveform: some harmonics will be a bit quieter, some will be a bit louder, a few will be completely cancelled, and a few will be perfectly added. But this is, of course, what happens in the real world. Fourier analysis (back to part one again, for anyone who can’t remember) tells us that any two complex signals – such as those representing speech or music – can be described as an infinite number of sine waves that represent all the frequencies present in the signal. So, for any given offset between two otherwise identical signals, each frequency will be phase-shifted by a different amount. The result, when viewed on a spectral analyser, looks like a broad comb, with the distance between the ‘teeth’ of the comb (the cancellations) defined by the timing difference (see <a href="#fig-4-5">Figure 4.5</a>).</p>
+        <figure id="fig-4-5">
+          <img src="images/fig-4-5.png" />
+          <figcaption>Figure 4.5</figcaption>
+        </figure>
+
         <p>In other words, when you mix two offset but otherwise identical signals, the phases of the individual frequencies define a filter. This, because of its characteristic shape, is called a Comb Filter, and you’ll find examples of this on instruments as diverse as the Analogue Systems RS Integrator (a traditional modular analogue synth) and the DSP-based Waldorf Q.</p>
       </section>
 
@@ -46,57 +70,41 @@
 
         <p>OK, so now you know something about phase, and you can see that this can be closely associated with audio filtering. But ask yourself this: If phase changes lead to filtering, can you assume that filtering leads to phase changes? The answer is, of course, yes.</p>
         <p>Look at the electrical circuit in <a href="#fig-4-6">Figure 4.6</a>. This has just two components – a resistor and a capacitor – but it depicts a perfectly usable filter called an RC low-pass filter. And, as any novice synthesist knows, a low-pass filter passes unhindered all the frequencies below a ‘cutoff’ frequency while attenuating all those above it. For this simple filter, the cutoff frequency is defined by the component values, while the nature of the circuit itself defines the rate at which the higher frequencies are attenuated.</p>
+        <figure id="fig-4-6">
+          <img src="images/fig-4-6.png" />
+          <figcaption>Figure 4.6</figcaption>
+        </figure>
+
         <p>Surprisingly (you may think) we’re not going to worry about the rate of attenuation this month – we’ll cover that next month. Instead, we’re going to look at what this filter does to the phases of the signals fed into it...</p>
         <p>Look at <a href="#fig-4-7">Figure 4.7</a>. This describes a property called the ‘phase response’ of our simple LPF, and it shows us that the phase of any given frequency presented at the filter’s input will be shifted backwards to a greater or lesser extent. As you can see, low-frequency signal components are largely unaffected by the filter, a component at the cutoff frequency is shifted by exactly an eighth of a cycle ( or -45º), and high-frequency components are shifted by a full -90º.</p>
+        <figure id="fig-4-7">
+          <img src="images/fig-4-7.png" />
+          <figcaption>Figure 4.7</figcaption>
+        </figure>
+
         <p>Since these concepts are a bit esoteric (and because I want you to read to the end of this article without getting a headache) let’s illustrate this by seeing what our RC filter does to something as fundamental to an analogue synth as a 100Hz square wave.</p>
         <p>If you recall the first part of Synth Secrets, you’ll remember that you can represent any conventional waveform by a number of harmonics, called the fundamental and its overtones. In this case, our input signal (the square wave) has a fundamental of 100Hz. The second harmonic – at 200Hz – is absent, but the third harmonic lies at 300Hz and has an amplitude of a third of the fundamental. Similarly, the fourth harmonic is absent, but the fifth is present at 500Hz and has an amplitude of one-fifth... and so on. All the harmonics are in phase, and the waveform looks like that shown in <a href="#fig-4-8">Figure 4.8</a>.</p>
+        <figure id="fig-4-8">
+          <img src="images/fig-4-8.png" />
+          <figcaption>Figure 4.8</figcaption>
+        </figure>
+
         <p>Now let’s say that our simple RC filter has a cutoff frequency of 400Hz, and imagine what would happen to our square wave if the filter’s phase response was zero at all frequencies. This is quite simple: the fundamental and first overtone of the square wave (the harmonics at 100Hz and 300Hz) would be unattenuated, but all the overtones at 500Hz and above would be attenuated according to the filter’s response. The resulting waveform (and you’ll have to trust me on this) is shown in <a href="#fig-4-9">Figure 4.9</a>.</p>
+        <figure id="fig-4-9">
+          <img src="images/fig-4-9.png" />
+          <figcaption>Figure 4.9</figcaption>
+        </figure>
+
         <p>But now let’s take into account the phase shifts imposed upon each of the harmonics in the signal. We now get a waveform that looks very different, and the true output from our filter (<a href="#fig-4-10">Figure 4.10</a>) is visibly distorted when compared to the original.</p>
+        <figure id="fig-4-10">
+          <img src="images/fig-4-10.png" />
+          <figcaption>Figure 4.10</figcaption>
+        </figure>
+
         <p>This leads to a hugely important conclusion, and this month’s most important Synth Secret:</p>
         <p>Filters not only change a waveform by attenuation, but distort it by individually phase-shifting the harmonics within it.</p>
         <p>Strangely, due to the relative simplicity of the filtered square wave, you probably won’t be able to hear the difference between the waveforms in Figures <a href="#fig-4-9">4.9</a> and <a href="#fig-4-10">4.10</a> – you would need a more complex wave to hear the phase-shifting of the harmonics. But as you’ve already seen in this series, there are very few sounds in the real world that aren’t more complex than a square wave, and so the effect on most sounds can be quite dramatic. And, of course, if it’s a Moog filter you’re passing the sound through... ah, but that’s a discussion for another day.</p>
       </section>
-
-      <figure id="fig-4-1">
-        <img src="images/fig-4-1.png" />
-        <figcaption>Fig. 4.1</figcaption>
-      </figure>
-      <figure id="fig-4-2">
-        <img src="images/fig-4-2.png" />
-        <figcaption>Fig. 4.2</figcaption>
-      </figure>
-      <figure id="fig-4-3">
-        <img src="images/fig-4-3.png" />
-        <figcaption>Fig. 4.3</figcaption>
-      </figure>
-      <figure id="fig-4-4">
-        <img src="images/fig-4-4.png" />
-        <figcaption>Fig. 4.4</figcaption>
-      </figure>
-      <figure id="fig-4-5">
-        <img src="images/fig-4-5.png" />
-        <figcaption>Fig. 4.5</figcaption>
-      </figure>
-      <figure id="fig-4-6">
-        <img src="images/fig-4-6.png" />
-        <figcaption>Fig. 4.6</figcaption>
-      </figure>
-      <figure id="fig-4-7">
-        <img src="images/fig-4-7.png" />
-        <figcaption>Fig. 4.7</figcaption>
-      </figure>
-      <figure id="fig-4-8">
-        <img src="images/fig-4-8.png" />
-        <figcaption>Fig. 4.8</figcaption>
-      </figure>
-      <figure id="fig-4-9">
-        <img src="images/fig-4-9.png" />
-        <figcaption>Fig. 4.9</figcaption>
-      </figure>
-      <figure id="fig-4-10">
-        <img src="images/fig-4-10.png" />
-        <figcaption>Fig. 4.10</figcaption>
-      </figure>
     </section>
   </body>
 </html>

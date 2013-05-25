@@ -12,7 +12,7 @@ I’m using EPUB 3.0, and this works fine in iBooks on the iPad, which is all I 
 
 ## Progress
 
-Parts *1-4* are in the EPUB.
+Parts *1-5* are in the EPUB.
 
 ## Generating the EPUB
 

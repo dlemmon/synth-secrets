@@ -1,0 +1,13 @@
+h3 {
+  margin-top: 2em;
+}
+
+figure {
+  text-align: center;
+  margin: 4em 0;
+}
+
+figcaption {
+  margin-top: 1em;
+  font-weight: bold;
+}

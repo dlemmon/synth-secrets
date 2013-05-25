@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+  <head>
+    <title>Further With Filters</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+  </head>
+
+  <body>
+    <section class="chapter" title="Further With Filters" epub:type="chapter" id="ch-005">
+      <h2 class="title">Further With Filters</h2>
+
+      <p>Last chapter, we started looking at audio filters, demonstrating (if not proving) that they are also phase-shifters, and therefore mess with your audio signals in more ways than one. In doing so, we skipped over the most important aspect of such devices: their abilities to remove parts of the audio spectrum and create new tones from old. But if you think that this is the easy bit, or that you already know how filters attenuate signals, the chances are that you’re wrong (on both counts). So let’s get stuck in, and dispel a few myths…</p>
+
+      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-001">
+        <h3>Passive filters</h3>
+
+        <p><a href="#fig-5-1">Figure 5.1</a> shows the passive low-pass RC filter first introduced last chapter (incidentally, you can, with a fair degree of accuracy, define a passive component as one that draws no power except that presented as the signal at its input – so resistors, capacitors and inductors are examples of passive components, while transistors and other amplifiers are not). If you read last chapter’s instalment, you may remember that we can define the cutoff frequency of an RC filter simply by choosing appropriate values for the two passive components within it. So far, so good… that tells us where in the audible spectrum the filter will take effect, but is doesn’t tell us what the extent of its effect will be.</p>
+        <figure id="fig-5-1">
+          <img src="images/fig-5-1.png" />
+          <figcaption>Figure 5.1</figcaption>
+        </figure>
+
+        <p>The relationship between what you put into a filter and what you get out is called the Transfer Function, and strictly speaking, this should encompass both the amplitude response (ie. effect on volume) and the phase response of the filter. But, since we discussed the phase-shifting aspect last chapter, we’re only going to consider the amplitude response this chapter. As it happens, the idealised transfer function of our RC filter is very simple: for every doubling of the frequency above the cutoff frequency (which I will call Fc), the gain at the output is halved (see <a href="#fig-5-2">Figure 5.2</a>).</p>
+        <figure id="fig-5-2">
+          <img src="images/fig-5-2.png" />
+          <figcaption>Figure 5.2</figcaption>
+        </figure>
+
+        <p>So, for example, if Fc is 1kHz, the gain at 2kHz is 1/2 (ie. the output is halved), the gain at 4kHz is 1/4 (the output is a quarter)… and so on. Since each doubling of the frequency is equivalent to moving up an octave, and each successive halving of the gain is known as an attenuation of six decibels (6dB), this response is most commonly called a 6dB/octave filter.</p>
+        <p>Unfortunately (and despite its ubiquitous use within the music industry) <a href="#fig-5-2">Figure 5.2</a> is actually wrong. <a href="#fig-5-3">Figure 5.3</a> shows a more accurate representation of the transfer function. As you can see, the signal amplitude is already down by 3dB at the cutoff frequency. This is not a fault. In fact, in electrical engineering, the position of this 3dB cut <em>defines</em> the cutoff frequency. So, let’s state this chapter’s first Synth Secret:</p>
+        <figure id="fig-5-3">
+          <img src="images/fig-5-3.png" />
+          <figcaption>Figure 5.3</figcaption>
+        </figure>
+
+        <blockquote>The cutoff frequency of a passive low-pass filter does not define the frequency at which the filter starts to work; it is itself defined as that frequency at which the signal is already attenuated by 3dB. And, since an attenuation of 3dB is easily perceived by the human ear, this means that you are already significantly affecting the signal at the cutoff frequency.</blockquote>
+        <p>Now, let’s back-track a little and consider what a simple low-pass filter does to a common waveform. To simplify matters, we’ll use the idealised low-pass filter response seen in <a href="#fig-5-2">Figure 5.2</a>, because its sharp ‘knee’ makes it easier to recognise what’s happening. <a href="#fig-5-4">Figure 5.4</a> shows the harmonic structure of the most common analogue synthesizer waveform of all: the sawtooth. All the harmonics are present in this signal, and their amplitudes relative to the fundamental are defined by the simple relationship 1/(harmonic number). Drawn on conventional graph axes, the amplitudes of the first 200 harmonics look like the graph shown in <a href="#fig-5-4">Figure 5.4</a>. However, <a href="#fig-5-4">Figure 5.4</a> is far from the best way to represent these harmonics. Much better is the graph with logarithmic axes shown in <a href="#fig-5-5">Figure 5.5</a>. This looks quite different, but it represents exactly the same information, so don’t worry if you don’t know what a logarithmic scale is. Furthermore, it should be obvious why I have chosen to change the axes of the graph in this way, even if you don’t know what a logarithmic scale is: unlike in <a href="#fig-5-4">Figure 5.4</a>, the amplitude relationship is now a straight line, and this makes it easy to see the filters’ effects in the following graphs. Indeed, if you now look back at <a href="#fig-5-2">Figure 5.2</a> and <a href="#fig-5-3">Figure 5.3</a> and study the axes, you will see that these graphs also have logarithmic axes.</p>
+        <figure id="fig-5-4">
+          <img src="images/fig-5-4.png" />
+          <figcaption>Figure 5.4</figcaption>
+        </figure>
+        <figure id="fig-5-5">
+          <img src="images/fig-5-5.png" />
+          <figcaption>Figure 5.5</figcaption>
+        </figure>
+      </section>
+
+      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-002">
+        <h3>Applying the filter</h3>
+
+        <p>So let’s see what a 6dB/octave RC filter with a cutoff frequency of, say, 3kHz does to the harmonics and waveform of a 100Hz sawtooth wave. <a href="#fig-5-6">Figure 5.6</a> shows how the filter attenuates the frequencies above 3kHz. If you bother to measure the new slope, you’ll find that the additional ‘rolloff’ (as the attenuation is commonly known, for reasons which should be obvious from looking at the graph) conforms to the 6dB/octave rule mentioned above. If you now look at <a href="#fig-5-7">Figure 5.7</a> and <a href="#fig-5-8">Figure 5.8</a>, you’ll see that the first diagram shows our idealised 100Hz sawtooth waveform with all its harmonics up to 20kHz unattenuated, while the latter shows the same signal processed by our 3kHz filter. As you can see, there’s not much visible difference between the two waveforms. This is because the 3kHz cutoff frequency allows the first 30 harmonics through untouched, and it’s only the low-amplitude high-frequency harmonics that are affected. Nevertheless, the human ear’s enormous sensitivity ensures that you hear even this tiny difference as a ‘dullness’ or lack of ‘top end’ in the filtered sound.</p>
+        <figure id="fig-5-6">
+          <img src="images/fig-5-6.png" />
+          <figcaption>Figure 5.6</figcaption>
+        </figure>
+        <figure id="fig-5-7">
+          <img src="images/fig-5-7.png" />
+          <figcaption>Figure 5.7</figcaption>
+        </figure>
+        <figure id="fig-5-8">
+          <img src="images/fig-5-8.png" />
+          <figcaption>Figure 5.8</figcaption>
+        </figure>
+      </section>
+
+      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-003">
+        <h3>Steepening the slope</h3>
+
+        <p>Filters with a 6dB/octave characteristic are used as tone controls in stereo systems, and occasionally within synthesizers as supplementary brightness controls, but they are not much use for true synthesis. This is because they don’t modify the waveform enough to change the tone very dramatically – filtered signals just sound like the original, only duller. Clearly, a more powerful filter is required if new timbres are to be created.</p>
+        <p>So what passive components allow us to create simple circuits with more powerful 12dB/octave, 18dB/octave or even 24dB/octave attenuations? Unfortunately, none of them do – so a different approach is needed. Why not cascade a number of RC filters to create the required steeper rolloffs? For example, two filters could be used together to create a 12dB/octave filter, three for an 18dB/octave filter, and four for a 24dB/octave filter. The four-element filter would then look like the idealised circuit shown in <a href="#fig-5-9">Figure 5.9</a>, and you would expect its idealised transfer function to look like <a href="#fig-5-10">Figure 5.10</a>.</p>
+        <figure id="fig-5-9">
+          <img src="images/fig-5-9.png" />
+          <figcaption>Figure 5.9</figcaption>
+        </figure>
+        <figure id="fig-5-10">
+          <img src="images/fig-5-10.png" />
+          <figcaption>Figure 5.10</figcaption>
+        </figure>
+
+        <p>However, sadly, it doesn’t work as simply as that. Our model of the response of the passive RC filter requires certainassumptions about the inputs and outputs; and while you can just about satisfy these assumptions for a single RC circuit, they break down completely if you try cascading elements as I’ve just proposed. So where do we go from here?</p>
+      </section>
+
+      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-004">
+        <h3>Up the pole</h3>
+
+        <p>If you’ve been in the synth game for a while, you’ll have heard that 12dB/octave filters are sometimes called ‘2-pole’ filters, and 24dB/octave filters are called ‘4-pole’ filters. You might think it safe to assume, therefore, that each of the 6dB/octave sections in <a href="#fig-5-9">Figure 5.9</a> is a ‘pole’. Unfortunately, you would be wrong (although not a million miles from the truth).</p>
+        <p>The name (in this context) is a consequence of a powerful mathematical operation called a ‘Laplace Transform’. This transform, while difficult to describe in words, is a convenient operation that allows mathematicians to analyse the responses of linear systems when they are presented with audio signals (as for ‘linear systems’ and the maths involved… no, don’t even dream of asking!) Anyway, the term ‘pole’ comes about because, when you represent an RC filter using a graph in the ‘Laplace Transform domain’, it looks like a flat sheet of rubber with a tent-pole pushing it sharply upwards at some point. A single 6dB/octave RC filter has one such ‘tent-pole’, and is therefore called a ‘1-pole’ filter, a 12dB/octave filter has two ‘poles’… and so on. Therefore, if you want to create a passive 24dB/octave filter with a single cutoff frequency for each of its four elements, it would seem safe to assume that would you want all the poles in the same place in the graph. And, for once, intuition is correct. Unfortunately, as I’ve already explained, achieving this using passive components is all but impossible because, when we cascade the sections, they interact and no longer function as they would in isolation. So, instead of the perfect 24dB/octave response of <a href="#fig-5-10">Figure 5.10</a>, the cutoff frequency for each section is different, and the amplitude response of our transfer function has four ‘knees’, as shown in <a href="#fig-5-11">Figure 5.11</a>.</p>
+        <figure id="fig-5-11">
+          <img src="images/fig-5-11.png" />
+          <figcaption>Figure 5.11</figcaption>
+        </figure>
+
+        <p>This then, leads us to an important conclusion: while a passive 4-pole filter will tend to a 24dB/octave rolloff at high frequencies, it will, to a greater or lesser extent, exhibit regions within which the rolloff is 6dB/octave, 12dB/octave and 18dB/octave. Moreover, if you look closely, you’ll see that the transfer functions within these intermediate regions are not quite straight lines, meaning that the relationship between the frequency and the input and output powers are not as straightforward as before.</p>
+      </section>
+
+      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-005">
+        <h3>Let’s get active</h3>
+
+        <p>Let’s recap our position so far: we’ve designed a circuit with an theoretical rolloff of 24dB/octave but, because the filter elements interact, the cutoff frequencies of each are different. Furthermore, the ‘knee’ of each cutoff is rounded and (trust me on this) even if the sections’ cutoff frequencies were identical, the composite ‘knee’ would get no ‘sharper’. We’ve also ignored any effects on the signal in the supposedly untouched ‘pass band’ below the cutoff frequency (which we know actually suffers attenuation to an extent, and may well endure other side-effects too) and, finally, we’ve completely ignored the phase-shifting effects of each of the filter stages.</p>
+
+        <aside>
+          <h4>Tricks of the trade</h4>
+
+          <p>There are a number of practical tricks that you can employ to overcome the inherent deficiencies of audio filters. For example, when designing his Fénix semi-modular (reviewed in SOS February ’99) Marc Paping of Synton used a 5-pole design (which has a theoretical maximum rolloff of 30dB/octave) to ensure that the Fénix’s ‘Moog-style’ low-pass filter actually achieved a true 24dB/octave rolloff in the audio band.</p>
+          <p>On the other hand, it’s also easy to get it wrong. A simple calculation error led to the infamous ARP4075 filter used in some ARP synthesizers. In theory this was a first-class filter, but the cutoff frequency wouldn’t exceed 12kHz or so, and this made the instruments sound dull and lifeless when compared to their predecessors. Amazingly, you could easily correct the problem by changing just four resistors on the circuit board!</p>
+        </aside>
+
+        <p>You might not unreasonably conclude at this point that this design approach is pretty worthless – but fortunately, we can deal with some of the above problems by inserting components between the filter stages to separate (or ‘buffer’) the responses of each from the other. These components include operational amplifiers (more commonly called ‘op-amps’) and it is these that make a filter ‘active’.</p>
+        <p>Unsurprisingly, given what we’ve just learned, the filters in all analogue synthesizers are active (with the exceptions of a few brightness controls and basic equalisers). These filters are more complicated than their passive brethren but have the advantage that, by suitable choice of design, you can make them respond in desirable ways. For example, you can concentrate on obtaining a sharper knee at the cutoff frequency, or maximise the flatness in the pass-band, or engineer a tailored phase response. Unfortunately, you can’t optimise all of these simultaneously, and so as in many other areas of recording equipment manufacture, good filter design is often a trade-off between desirable attributes.</p>
+        <p>But there’s another consideration: even when we discuss the fundamental problems of these filters, we treat the electrical circuits themselves as if all the components within them were ‘ideal’, and responded in ideal ways. Yet many components are rated to within 1 percent, 2 percent… sometimes 10 percent of their quoted values. This means that two ostensibly identical circuits will often be different in subtle ways. So, even in the case of an active 24dB/octave filter, it’s highly unlikely that (for example) all four ‘poles’ will be perfectly superimposed, one upon the other. This means that our conclusion regarding passive filters is itself a generally applicable Synth Secret:</p>
+        <p>A 4-pole filter will always tend to a 24dB/octave rolloff at high frequencies, but it will exhibit regions within which the rolloff is 6dB/octave, 12dB/octave, and 18dB/octave.</p>
+        <p>If all this leads us to just one conclusion, it’s this: filters are conspicuously more complex than we are often led to believe. Indeed, if you were to accept the common, simplistic definitions of 24dB/octave filters you might expect (say) the Minimoog’s and the later ARPs’ filters to sound the same. This is clearly not the case. Similarly, you might think that the MS20’s and the Oberheim SEM’s 12dB/octave filters would be similar, and this is equally false. So this chapter’s final Synth Secret is something that you all knew anyway:</p>
+
+        <blockquote>Whether the differences are subtle or glaringly obvious, every analogue filter design sounds different from every other.</blockquote>
+      </section>
+    </section>
+  </body>
+</html>

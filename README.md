@@ -8,7 +8,7 @@ Obviously none of this content is mine, and if I’m asked to take it down I wil
 
 ### “Works on my device”
 
-I’m using EPUB 3.0, and this works fine in iBooks on the iPad, which is all I care about supporting right now. Your mileage may vary (links within chapters don’t seem to work within Adobe Digital Editions for example).
+I’m using EPUB 3.0, and this works fine in iBooks on the iPad, which is all I’m interested in supporting right now. Your mileage may vary (links within chapters don’t seem to work within Adobe Digital Editions for example).
 
 ## Progress
 

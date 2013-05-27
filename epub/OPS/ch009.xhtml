@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+  <head>
+    <title>An Introduction To VCAs</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+  </head>
+
+  <body>
+    <section class="chapter" title="An Introduction To VCAs" epub:type="chapter" id="ch009">
+      <h2 class="title">An Introduction To VCAs</h2>
+
+      <p>In the course of this series, there’s one synthesizer component I’ve mentioned frequently – especially in chapter 3 – without fully explaining what it is. It’s the Voltage Controlled Amplifier, or ‘VCA’, and it is an important element in the operation of any analogue synthesizer. Indeed, so fundamental is the VCA that it has its counterparts in every type of synthesis: digitally controlled analogue synths have ‘DCAs’, while pure digital synths and samplers have all manner of time-variant amplifiers (‘TVAs’), operator levels, and heaven knows what else. So this chapter will focus on VCAs and the ways in which they and their latter-day equivalents help you to create the sounds you want to hear.</p>
+
+      <h3>Two types of VCA?</h3>
+
+      <p>Firstly, we must differentiate between amplifiers in the audio signal chain and those used to modify control voltages. So let’s start by returning to Synth Secrets Part 3 for a moment, and revisit <a href="ch003.xhtml#fig-3-1">Figure 3.1</a> of that article (<a href="#fig-9-1">Figure 9.1</a> of this one, too). This shows a simple sound generator comprising a tone generator and an amplifier that lets you hear what the generator is… umm, generating. Clearly, the amplifier in this diagram is acting in a similar way to the amps in your hi-fi or car stereo. To put it bluntly, it’s making the signal louder.</p>
+      <figure id="fig-9-1">
+        <img src="images/fig-9-1.png" />
+        <figcaption>Figure 9.1</figcaption>
+      </figure>
+
+      <p>This is all very well, but it’s not a good enough description for us today. Have you ever asked yourself, ‘What is an amplifier?’ If you are a guitarist, you might describe an amplifier as something you use to add distortion and other effects as you boost your sound to a screaming climax. If you are a hi-fi buff, it’s more likely that you will describe it as a huge, control-free, and expensive lump of hand-picked valves and power supplies that make the signal louder with as few audible side effects as possible. But if you were an engineer, you would probably describe an ideal amplifier as a device that changes an input signal of amplitude A1 into a new signal that has the same shape as the original, but with output amplitude A2.</p>
+      <p>Clearly, if A2 is greater than A1, the signal is louder than before. If A2 is less than A1, the signal is quieter than the original. Simple, yes? But it’s still not enough to say that signals become quieter or louder. We need to know by how much they do so. Defining this is also simple: we just calculate the ratio of A2 to A1 and call the result the ‘Gain’ of the amplifier (<a href="#eq-9-1">Equation 9.1</a>). So, for example, if A2 is double A1, the ratio is ‘2’ and we say that the Gain is equal to 2. Unfortunately, we can’t assume that you will perceive the signal to be twice as loud as before, because the human ear does not work this way… but that’s a discussion for another time.</p>
+      <figure id="eq-9-1">
+        <img src="images/eq-9-1.png" />
+        <figcaption>Equation 9.1</figcaption>
+      </figure>
+
+      <p>Now let’s think about the volume control on the front of a device such as a cheap transistor radio. In human terms this is increasing and decreasing the volume of the signal that you hear, so it is modifying the Gain in some fashion. <a href="#fig-9-2">Figure 9.2</a> shows a possible implementation for such a control.</p>
+      <figure id="fig-9-2">
+        <img src="images/fig-9-2.png" />
+        <figcaption>Figure 9.2</figcaption>
+      </figure>
+
+      <p>In this diagram, the receiver circuit produces a low-amplitude signal which passes directly to a preamplifier. This boosts the signal to ‘line level’. The output from this then passes through a volume control which, in this implementation, is just a passive potentiometer. If the volume knob is turned fully clockwise, the signal is unaffected, and passes at line level to the power amplifier. This then boosts the signal to a level at which it can drive a coil of wire and lump of cardboard (a speaker) so that you hear the broadcast. If, however, you turn the volume control progressively anticlockwise, the loudness of the sound you hear will steadily diminish until, when the knob is fully anticlockwise, silence will reign. This is because the potentiometer is progressively reducing the amount of signal reaching the power amplifier.</p>
+      <p>It might seem odd, but you could redefine this volume knob as an amplifier of sorts. It’s just that its Gain never exceeds unity. When it is ‘off’, the ratio of Output/Input equals 0, and when it is set to its maximum the ratio of Output/Input equals 1. By definition, therefore, the Gain always lies between 0 and 1. Normally, however, you would not call a passive device of this sort an ‘amplifier’. You would call it an ‘attenuator’.</p>
+      <p>There’s another important point to consider about the amplifier/attenuator chain in <a href="#fig-9-2">Figure 9.2</a>. We now know that, for any position of the knob, the attenuator’s Gain is some number GATTEN which lies between 0 and 1. We can also assume that the preamplifier has a large Gain (we’ll call this GPRE) and that the power amplifier has another large Gain (which we’ll call GPOWER). We can then say that the total Gain through the system is the product of all the individual gains, as shown in <a href="#eq-9-2">Equation 9.2</a>.</p>
+      <figure id="eq-9-2">
+        <img src="images/eq-9-2.png" />
+        <figcaption>Equation 9.2</figcaption>
+      </figure>
+
+      <p>This is an important result, so let’s call it a Synth Secret:</p>
+      <blockquote><p>Whenever you have more than one amplifier and/or attenuator in series, you can calculate the Gain of the whole system simply by multiplying the individual Gains together.</p></blockquote>
+
+      <h3>A better circuit</h3>
+
+      <p>Although <a href="#fig-9-2">Figure 9.2</a> is easy to understand, the circuit it depicts is not a good one. This is because the audio signal passes through the attenuator itself. Since this will usually be a cheap potentiometer, it’s likely that it will introduce crackles and distortion into the signal. This, for most people, is something to be avoided, so we need a better circuit that performs the same job without the unwanted side effects.</p>
+      <p><a href="#fig-9-3">Figure 9.3</a>, above, shows such a circuit. This contains the same elements, but the volume control knob now attenuates a voltage source that controls the Gain of the preamplifier. In other words, we have redefined the preamp as a Voltage Controlled Amplifier, and the audio signal no longer passes through the volume control.</p>
+      <figure id="fig-9-3">
+        <img src="images/fig-9-3.png" />
+        <figcaption>Figure 9.3</figcaption>
+      </figure>
+
+      <h3>From radios to synthesizers</h3>
+
+      <p>Let’s now relate our ‘radio’ to the structure of a simple analogue synthesizer. Clearly, the signal generated by the receiver circuit could be anything: speech, Beethoven’s 5th, Silverchair’s ‘Freak’, or a sawtooth wave. So why don’t we replace the words ‘receiver circuit’ with the words ‘tone generator’? Next, let’s consider the power amplifier in the diagram. A few synths with built-in speakers have these (for example, the ARP 2600, the Roland HS60 and the Yamaha YS200) but most leave the final amplification to external units. As a result, we can lose the ‘power amplifier’ from our block diagram without compromising our discussion. That leaves the preamplifier and volume control.</p>
+      <p>If you think back to Synth Secrets Part 3, you’ll remember that we can replace a volume control with some sort of controller circuit. So <a href="#fig-9-4">Figure 9.4</a> shows the same audio signal path as before, but the preamplifier (now simply called ‘Amplifier’) is controlled by a contour generator which is itself being triggered by… well, a trigger. <a href="#fig-9-4">Figure 9.4</a> may look very different from <a href="#fig-9-3">Figure 9.3</a>, but in essence it is describing the same relationship of generator, amplifier, and volume control. So let’s analyse what’s happening.</p>
+      <figure id="fig-9-4">
+        <img src="images/fig-9-4.png" />
+        <figcaption>Figure 9.4</figcaption>
+      </figure>
+
+      <p>Let’s say that the Tone Generator produces an initial signal of ±2V. Let’s also say that the contour generator has been designed to output an ADSR envelope which ranges from 0V to +5V. Now let’s suppose that the VCA outputs nothing when 0V is presented to its CV input, and it outputs a maximum audio signal amplitude of ±10V when a +5V CV signal is presented to its CV input. This means that the amplifier in has a maximum Gain of 5 (G=10V/2V) and a minimum Gain of zero (G=0V/2V). Finally, let’s define that the amplifier’s response is ‘linear’, ie. that 1V at the CV input generates a Gain of 2; 2V at the CV input generates a Gain of 4, and so on. This means that the amount of audio signal Gain at any given moment is proportional to the instantaneous level of the contour applied to the amplifier’s CV input.</p>
+      <p>All these voltages may seem confusing written down in this way, so I have represented them (I hope) more clearly in <a href="#fig-9-5">Figure 9.5</a>.</p>
+      <figure id="fig-9-5">
+        <img src="images/fig-9-5.png" />
+        <figcaption>Figure 9.5</figcaption>
+      </figure>
+
+      <h3>Initial gain</h3>
+
+      <p>You might think that there is enough detail here to represent everything that you need to know about a practical VCA. But there isn’t. If you look at the front panels of an ARP Odyssey or an ARP 2600, you’ll see a slider marked ‘Initial Gain’ or ‘VCA Gain’. This adds an initial CV, or ‘offset’, to whatever CV the Contour Generator produces (see <a href="#fig-9-6">Figure 9.6</a>).</p>
+      <figure id="fig-9-6">
+        <img src="images/fig-9-6.png" />
+        <figcaption>Figure 9.6</figcaption>
+      </figure>
+
+      <p>So, for example, if we take the contour shown in <a href="#fig-9-5">Figure 9.5</a> and add an Initial Gain of +3V, we obtain the contour shown in <a href="#fig-9-7">Figure 9.7</a> . This offset has an immediate effect – the VCA is always being told to produce a Gain greater than zero. Because the CV presented to the VCA has a permanent +3V offset, therefore, signal is always produced at the output: provided the filter is open, the synth will produce sound continously until it is switched off.</p>
+      <figure id="fig-9-7">
+        <img src="images/fig-9-7.png" />
+        <figcaption>Figure 9.7</figcaption>
+      </figure>
+
+      <h3>Let’s not go too far</h3>
+
+      <p>Throughout this discussion we have assumed that the VCA has infinite headroom. This means that, no matter how much amplification you demand from it, it will continue to deliver the same shape of signal without adding distortion or any other artefacts. This, of course, is impossible, and if you ask a VCA to generate a signal beyond its capabilities, a particular type of distortion will result.</p>
+      <p>Let’s look again at <a href="#fig-9-5">Figure 9.5</a>. You’ll remember that we defined the maximum output from the VCA as ±10V, achieved when the controlling CV reached +5V. So, what would happen if we replaced our 0V to +5V ADSR contour with the +8V contour shown in <a href="#fig-9-7">Figure 9.7</a>? Clearly, at the peak of the contour, the VCA would try, and fail, to generate a signal of ±16V. Since it can’t exceed ±10V, the signal is ‘clipped’, as shown in <a href="#fig-9-8">Figure 9.8</a>.</p>
+      <figure id="fig-9-8">
+        <img src="images/fig-9-8.png" />
+        <figcaption>Figure 9.8</figcaption>
+      </figure>
+
+      <p>If you look closely at the part of the output waveform that occurs during the period of the ADSR contour, you can see that the output no longer has the sawtooth shape of the original input signal. The ‘tops’ of the waveform are squared off in the Attack and Decay stages by the amplifier’s inability to amplify above its ±10V limit. The result of this is a harsh distortion (‘clipping distortion’) that disappears as the signal demanded of the VCA returns to a range within its capabilities, and the waveform settles back to its original sawtooth shape. Of course, some players use this distortion creatively, and it can be rather effective when an amplifier clips in a ‘softer’ way, rounding off the waveform rather than squaring it so dramatically. This line of thought could also lead to a discussion of analogue tape compression and saturation, and one of the reasons why analogue recordings differ from digital ones. But, once again, we’ll have to leave this for another day.</p>
+
+      <h3>A different use for VCAs</h3>
+
+      <p>Everything we have discussed so far assumes that the VCA is in the audio signal path. But in reality, the majority of VCAs do not reside here: they’re in the control voltage paths within the synthesizer.</p>
+      <p>Let’s return to the contour generator controlling the amplifier in <a href="#fig-9-6">Figure 9.6</a>. You’ll remember that this outputs an ADSR contour with a maximum of +5V at the end of the Attack stage. Now, if you think back to last chapter. This, as we have already discussed, will generate a gain of 5 in our VCA. But there are many occasions when we will not want the contour to affect the signal so dramatically. So what can we do if we don’t want the result to be so extreme?</p>
+      <p>Look at <a href="#fig-9-9">Figure 9.9</a>. As you can see, I have placed a VCA in the control signal path, and this is in turn controlled by a CV that is itself controlled by an attenuator. This VCA applies a Gain (determined by the position of the attenuator) to the ADSR contour so that you can attenuate or amplify it without changing its shape.</p>
+      <figure id="fig-9-9">
+        <img src="images/fig-9-9.png" />
+        <figcaption>Figure 9.9</figcaption>
+      </figure>
+
+      <p>This result would not be important if the ADSR was the only CV affecting the signal amplifier. After all, reducing the amplitude of the contour would be no different from reducing the final output of the synth, maybe just by turning down the external amplifier. But the ADSR is not the only CV. As well as the Initial Gain shown in <a href="#fig-9-9">Figure 9.9</a>, you could have LFOs or a host of other controllers modifying the audio signal amplifier’s action upon the signal. In this case, you are changing the degree by which the ADSR modifies the signal relative to the initial level and any other modifiers in use.</p>
+      <p>To make this clearer, let’s use another example that you will have encountered more often. <a href="#fig-9-10">Figure 9.10</a> is similar to <a href="#fig-9-9">Figure 9.9</a>, except that the CVs are controlling a low-pass filter, not an amplifier. As you can see, the fader at the top of the figure is now the initial level of the filter, most usually called the ‘cutoff frequency’, and the VCA is controlling the amount of contour applied to this. Clearly, you don’t want the filter to open completely for every sound you make, so almost every synth allows you to attenuate the contour using a VCA, as shown.</p>
+      <figure id="fig-9-10">
+        <img src="images/fig-9-10.png" />
+        <figcaption>Figure 9.10</figcaption>
+      </figure>
+
+      <h3>Real VCAs</h3>
+
+      <p>The important role played by VCAs is often overlooked when we think about synthesis. Indeed, if you look at the control panels of many analogue synths, you’ll see that the section described as ‘Amplifier’ or ‘VCA’ is most often dominated by an ADSR contour generator, with perhaps an envelope level control (also called ‘Amount’) and/or Initial Level control too. This is why many novices find it difficult to differentiate between the contour generator, the VCA in the CV path, and the audio signal amplifier itself. Similarly, the filter section will often contain a second contour generator and another ‘Amount’ control alongside the cutoff and resonance knobs. This means, of course, that there are VCAs in the VCF section too.</p>
+      <p>Let’s finish this chapter by looking at a well-specified VCA from a British modular synth manufacturer. As you can see from <a href="#fig-9-11">Figure 9.11</a>, the device has four inputs, five knobs, and an output. There are two signal inputs (marked SIG 1 IN and SIG 2 IN), which means that there is a signal mixer in the module. There are two CV inputs which control the amplification of the VCA itself, meaning that there is a CV mixer in there, too. The CV inputs are marked CV1-IN LIN and CV2-IN LOG. Each of the four inputs has an associated level control, and there is an Initial Level control, just as we discussed above. A block diagram for all of this is shown in <a href="#fig-9-12">Figure 9.12</a>, above.</p>
+      <figure id="fig-9-11">
+        <img src="images/fig-9-11.png" />
+        <figcaption>Figure 9.11</figcaption>
+      </figure>
+      <figure id="fig-9-12">
+        <img src="images/fig-9-12.png" />
+        <figcaption>Figure 9.12</figcaption>
+      </figure>
+
+      <p>As you can see, that’s quite a lot of electronics. Of course, we shouldn’t really call this unit ‘just’ a VCA, but synthesizer manufacturers often throw strict accuracy to the wind to make things easier to grasp (and thank heavens for that!). You may be curious as to why one of the CV inputs is called ‘LIN’ and the other ‘LOG’. This leads us to a whole new chapter regarding the ways that signals exist and respond in the real world. Consequently, it too will have to wait till another time.</p>
+
+      <h3>…And finally</h3>
+
+      <p>Before finishing, I want to leave you with one more thought. All through this article we’ve treated the main signal path as an audio signal path. But what’s to stop us using CVs as the main input signals in Figures 4, 5, 6, 8, 9, 10 and 12? The answer is ‘nothing’, and this leads us directly to another Synth Secret:</p>
+      <blockquote><p>One of the most common uses for VCAs is to modify the actions of CVs using other CVs;</p></blockquote>
+      <p>…and, contrary to what I wrote in the second paragraph of this article, another:</p>
+      <blockquote><p>We should not differentiate between amplifiers in the audio signal chain and those used to modify control voltages.</p></blockquote>
+      <p>Of course, there’s nothing to stop us passing the output from our first VCA to a second for further modification… and on, and on, and on. And, all the while, our first Synth Secret (suitably modified to take into account the actions of contour generators and other modifiers) still applies:</p>
+      <blockquote><p>Whenever you have more than one amplifier and/or attenuator in series, you can at any moment calculate the Gain of the whole system simply by multiplying the individual Gains – at each instant – together.</p></blockquote>
+      <p>This is one of the prime reasons why freely patchable (modular) synths are so powerful: you can dynamically modify any signal – audio or CV – using any other dynamic signal (or signals). And the devices that let you do this are… the lowly and often overlooked VCAs!</p>
+    </section>
+  </body>
+</html>

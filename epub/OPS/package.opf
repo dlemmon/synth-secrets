@@ -21,6 +21,7 @@
     <item id="ch004" href="ch004.xhtml" media-type="application/xhtml+xml" />
     <item id="ch005" href="ch005.xhtml" media-type="application/xhtml+xml" />
     <item id="ch006" href="ch006.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch007" href="ch007.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="application/css" />
@@ -94,6 +95,21 @@
     <item id="fig-6-14" href="images/fig-6-14.png" media-type="image/png" />
     <item id="fig-6-15" href="images/fig-6-15.png" media-type="image/png" />
     <item id="fig-6-16" href="images/fig-6-16.png" media-type="image/png" />
+
+    <item id="fig-7-1" href="images/fig-7-1.png" media-type="image/png" />
+    <item id="fig-7-2" href="images/fig-7-2.png" media-type="image/png" />
+    <item id="fig-7-3" href="images/fig-7-3.png" media-type="image/png" />
+    <item id="fig-7-4" href="images/fig-7-4.png" media-type="image/png" />
+    <item id="fig-7-5" href="images/fig-7-5.png" media-type="image/png" />
+    <item id="fig-7-6" href="images/fig-7-6.png" media-type="image/png" />
+    <item id="fig-7-7" href="images/fig-7-7.png" media-type="image/png" />
+    <item id="fig-7-8" href="images/fig-7-8.png" media-type="image/png" />
+    <item id="fig-7-9" href="images/fig-7-9.png" media-type="image/png" />
+    <item id="fig-7-10" href="images/fig-7-10.png" media-type="image/png" />
+    <item id="fig-7-11" href="images/fig-7-11.png" media-type="image/png" />
+    <item id="fig-7-12" href="images/fig-7-12.png" media-type="image/png" />
+    <item id="fig-7-13" href="images/fig-7-13.png" media-type="image/png" />
+    <item id="fig-7-14" href="images/fig-7-14.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -104,5 +120,6 @@
     <itemref idref="ch004" linear="yes" />
     <itemref idref="ch005" linear="yes" />
     <itemref idref="ch006" linear="yes" />
+    <itemref idref="ch007" linear="yes" />
   </spine>
 </package>

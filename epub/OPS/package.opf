@@ -24,6 +24,7 @@
     <item id="ch007" href="ch007.xhtml" media-type="application/xhtml+xml" />
     <item id="ch008" href="ch008.xhtml" media-type="application/xhtml+xml" />
     <item id="ch009" href="ch009.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch010" href="ch010.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="application/css" />
@@ -137,6 +138,23 @@
     <item id="fig-9-12" href="images/fig-9-12.png" media-type="image/png" />
     <item id="eq-9-1" href="images/eq-9-1.png" media-type="image/png" />
     <item id="eq-9-2" href="images/eq-9-2.png" media-type="image/png" />
+
+    <item id="fig-10-1" href="images/fig-10-1.png" media-type="image/png" />
+    <item id="fig-10-2" href="images/fig-10-2.png" media-type="image/png" />
+    <item id="fig-10-3" href="images/fig-10-3.png" media-type="image/png" />
+    <item id="fig-10-4" href="images/fig-10-4.png" media-type="image/png" />
+    <item id="fig-10-5" href="images/fig-10-5.png" media-type="image/png" />
+    <item id="fig-10-6" href="images/fig-10-6.png" media-type="image/png" />
+    <item id="fig-10-7" href="images/fig-10-7.png" media-type="image/png" />
+    <item id="fig-10-8" href="images/fig-10-8.png" media-type="image/png" />
+    <item id="fig-10-9" href="images/fig-10-9.png" media-type="image/png" />
+    <item id="fig-10-10" href="images/fig-10-10.png" media-type="image/png" />
+    <item id="fig-10-11" href="images/fig-10-11.png" media-type="image/png" />
+    <item id="fig-10-12" href="images/fig-10-12.png" media-type="image/png" />
+    <item id="fig-10-13" href="images/fig-10-13.png" media-type="image/png" />
+    <item id="fig-10-14" href="images/fig-10-14.png" media-type="image/png" />
+    <item id="fig-10-15" href="images/fig-10-15.png" media-type="image/png" />
+    <item id="fig-10-16" href="images/fig-10-16.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -150,5 +168,6 @@
     <itemref idref="ch007" linear="yes" />
     <itemref idref="ch008" linear="yes" />
     <itemref idref="ch009" linear="yes" />
+    <itemref idref="ch010" linear="yes" />
   </spine>
 </package>

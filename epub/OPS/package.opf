@@ -15,12 +15,12 @@
     <item id="toc" properties="nav" href="toc.xhtml" media-type="application/xhtml+xml" />
 
     <!-- chapters -->
-    <item id="ch-001" href="ch-001.xhtml" media-type="application/xhtml+xml" />
-    <item id="ch-002" href="ch-002.xhtml" media-type="application/xhtml+xml" />
-    <item id="ch-003" href="ch-003.xhtml" media-type="application/xhtml+xml" />
-    <item id="ch-004" href="ch-004.xhtml" media-type="application/xhtml+xml" />
-    <item id="ch-005" href="ch-005.xhtml" media-type="application/xhtml+xml" />
-    <item id="ch-006" href="ch-006.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch001" href="ch001.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch002" href="ch002.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch003" href="ch003.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch004" href="ch004.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch005" href="ch005.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch006" href="ch006.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="application/css" />
@@ -98,11 +98,11 @@
 
   <spine>
     <itemref idref="toc" linear="yes" />
-    <itemref idref="ch-001" linear="yes" />
-    <itemref idref="ch-002" linear="yes" />
-    <itemref idref="ch-003" linear="yes" />
-    <itemref idref="ch-004" linear="yes" />
-    <itemref idref="ch-005" linear="yes" />
-    <itemref idref="ch-006" linear="yes" />
+    <itemref idref="ch001" linear="yes" />
+    <itemref idref="ch002" linear="yes" />
+    <itemref idref="ch003" linear="yes" />
+    <itemref idref="ch004" linear="yes" />
+    <itemref idref="ch005" linear="yes" />
+    <itemref idref="ch006" linear="yes" />
   </spine>
 </package>

@@ -20,28 +20,28 @@
 
         <p>We’ll start, as usual, with our simple 6dB/octave low-pass RC filter (see <a href="#fig-6-1">Figure 6.1</a>). Let’s consider what happens if we replace the resistor at the top of the diagram with a variable resistor, more commonly known as a potentiometer. We then get the circuit shown in <a href="#fig-6-2">Figure 6.2</a>. Now, I have done my best to avoid any maths, but there’s something you ought to know about this filter: the cutoff frequency is directly related to the amount of electrical resistance provided by the resistor, and the capacitance of the capacitor. The relationship is so simple that I can write it like this:</p>
         <figure id="fig-6-1">
-          <img url="images/fig-6-1.png" />
+          <img src="images/fig-6-1.png" />
           <figcaption>Figure 6.1</figcaption>
         </figure>
         <figure id="fig-6-2">
-          <img url="images/fig-6-2.png" />
+          <img src="images/fig-6-2.png" />
           <figcaption>Figure 6.2</figcaption>
         </figure>
 
         <p>In other words, if you increase the resistance, the cutoff frequency drops. Conversely, if you reduce the resistance, the cutoff frequency rises. And what would a synthesist use to control the potentiometer that lets you do this…? Answer: a knob or a slider. In this case, it’s the filter cutoff knob (or slider). Of course, this is an example of a passive filter, and almost every analogue synthesizer filter is active (ie. it includes an amplifier of some sort). But the principle remains the same: by adjusting the value of one or more components in a given filter circuit, you can adjust the cutoff frequency.</p>
         <p>The same is also true of a high-pass filter. This is a device that, instead of attenuating high frequencies, attenuates the low ones. You can compare the different frequency responses of low-pass and high-pass filters in <a href="#fig-6-3">Figure 6.3</a> and <a href="#fig-6-4">Figure 6.4</a>.</p>
         <figure id="fig-6-3">
-          <img url="images/fig-6-3.png" />
+          <img src="images/fig-6-3.png" />
           <figcaption>Figure 6.3</figcaption>
         </figure>
         <figure id="fig-6-4">
-          <img url="images/fig-6-4.png" />
+          <img src="images/fig-6-4.png" />
           <figcaption>Figure 6.4</figcaption>
         </figure>
 
         <p><a href="#fig-6-5">Figure 6.5</a> shows the simplest high-pass filter with a variable cutoff frequency. As you can see, it has the same two components as the variable low-pass filter, but they are swapped around in the circuit. And, once again, the cutoff frequency is simply proportional to 1/R.</p>
         <figure id="fig-6-5">
-          <img url="images/fig-6-5.png" />
+          <img src="images/fig-6-5.png" />
           <figcaption>Figure 6.5</figcaption>
         </figure>
       </section>
@@ -51,28 +51,28 @@
 
         <p>Now let’s be imaginative. It should be a small leap to see that we can combine a low-pass filter and a high-pass filter to create another type of filter found on many synthesizers: the band-pass filter. This is so called because, instead of attenuating one end of the audio spectrum, it attenuates both ends, permitting just a band of frequencies to pass (relatively) unattenuated. Conceptually it’s simple: just place the low-pass and high-pass elements in series, and you get the circuit shown in <a href="#fig-6-6">Figure 6.6</a>, and a frequency response that looks like <a href="#fig-6-7">Figure 6.7</a>.</p>
         <figure id="fig-6-6">
-          <img url="images/fig-6-6.png" />
+          <img src="images/fig-6-6.png" />
           <figcaption>Figure 6.6</figcaption>
         </figure>
         <figure id="fig-6-7">
-          <img url="images/fig-6-7.png" />
+          <img src="images/fig-6-7.png" />
           <figcaption>Figure 6.7</figcaption>
         </figure>
 
         <p>Of course, nothing in life is ever quite that easy, and there are two problems with this approach. Firstly, as we discussed last month, you can’t cascade RC filters and achieve the expected result. Secondly, with the same cutoff frequency for both the high-pass and low-pass elements, the signal is attenuated everywhere – by 6dB at its loudest point, and more elsewhere. This would, in most cases, make it unusably quiet.</p>
         <p>Fortunately, designers can overcome these difficulties very easily. The first solution requires that the input and output impedances are designed to isolate the cascaded stages from each other. The second simply requires that we separate the cutoff frequencies and (preferably) make the slopes steeper by increasing the response of each element to 12dB/oct or even 24dB/oct. The gain response of the resulting filter now looks something like that shown in <a href="#fig-6-8">Figure 6.8</a>.</p>
         <figure id="fig-6-8">
-          <img url="images/fig-6-8.png" />
+          <img src="images/fig-6-8.png" />
           <figcaption>Figure 6.8</figcaption>
         </figure>
 
         <p>Extending these ideas further, we can now work out what a band-reject (or ‘notch’) filter is. Let’s take a low-pass filter with a cutoff of, say, 1kHz and pass a signal through it. Now let’s pass the same source signal, in parallel this time, through a high-pass filter with a cutoff frequency of, say, 5kHz. When the two are recombined, the frequencies below 1kHz and above 5kHz will come through relatively unscathed, but all those between will be attenuated. Neat, huh? Well, no… the phase shifts introduced by the two separated filters can cause all manner of side-effects when the signals are mixed together again. Nevertheless, the block diagram and the response of our idealised band-reject filter are shown in <a href="#fig-6-9">Figure 6.9</a> and <a href="#fig-6-10">Figure 6.10</a>.</p>
         <figure id="fig-6-9">
-          <img url="images/fig-6-9.png" />
+          <img src="images/fig-6-9.png" />
           <figcaption>Figure 6.9</figcaption>
         </figure>
         <figure id="fig-6-10">
-          <img url="images/fig-6-10.png" />
+          <img src="images/fig-6-10.png" />
           <figcaption>Figure 6.10</figcaption>
         </figure>
       </section>
@@ -84,7 +84,7 @@
         <p>The first factor is easily introduced: it’s ‘voltage control’. If you return to Synth Secrets 3 (July ‘99) you will find that it is devoted to the idea of changing elements of the sound without human intervention. I won’t retread old ground here, but it should be obvious that you can replace the potentiometers in <a href="#fig-6-2">Figure 6.2</a>, <a href="#fig-6-5">Figure 6.5</a> and <a href="#fig-6-6">Figure 6.6</a> with a device that responds in some way to the application of an external voltage. In this way, we can sweep the filters’ cutoff frequencies by applying modulators such as envelope generators and LFOs – see <a href="#fig-6-11">Figure 6.11</a>.</p>
         <p>But what about the second missing item? Ah, that’s a bit more involved…</p>
         <figure id="fig-6-11">
-          <img url="images/fig-6-11.png" />
+          <img src="images/fig-6-11.png" />
           <figcaption>Figure 6.11</figcaption>
         </figure>
       </section>
@@ -97,22 +97,22 @@
         <p>Answer 1: Nothing. Passive RC filters have no resonant frequencies. You can put any signal through one and, no matter how complex the filter circuit, it will just pass or attenuate each frequency according to its response.</p>
         <p>Answer 2: Lots. When you combine resistors and capacitors with a third component called an inductor, or use them in active circuits with two or more poles, you can make relatively simple circuits that have a large peak in the response at a particular frequency (see <a href="#fig-6-12">Figure 6.12</a>).</p>
         <figure id="fig-6-12">
-          <img url="images/fig-6-12.png" />
+          <img src="images/fig-6-12.png" />
           <figcaption>Figure 6.12</figcaption>
         </figure>
 
         <p>Furthermore, whereas all passive filters have a gain of less than unity, an active resonant circuit can boost frequencies, making the harmonics at those frequencies louder than they were in the input signal. I’d love to tell you why this is so but, as CEDAR Audio’s Research Director, Dave Betts, said to me recently, “It’s obvious why it happens. It’s the solution to a second-order differential equation.” Yeah, well… at least I can tell you which frequencies are boosted. It’s those that exist near the cutoff frequency.</p>
         <p><a href="#fig-6-13">Figure 6.13</a> shows an idealised response for a resonant low-pass filter. As you can see, the filter still attenuates the frequencies far above the cutoff frequency, but a band around the cutoff is boosted. Furthermore, the low frequencies are slightly attenuated. (For some reason, this is rarely shown in diagrams of this sort.) The width of the resonant peak is described by a parameter called its ‘Q’. If Q is low, the peak is broad, but as Q increases, the peak in the filter response becomes more and more pronounced and creates dramatic tonal changes. See <a href="#fig-6-14">Figure 6.14</a> and <a href="#fig-6-15">Figure 6.15</a>.</p>
         <figure id="fig-6-13">
-          <img url="images/fig-6-13.png" />
+          <img src="images/fig-6-13.png" />
           <figcaption>Figure 6.13</figcaption>
         </figure>
         <figure id="fig-6-14">
-          <img url="images/fig-6-14.png" />
+          <img src="images/fig-6-14.png" />
           <figcaption>Figure 6.14</figcaption>
         </figure>
         <figure id="fig-6-15">
-          <img url="images/fig-6-15.png" />
+          <img src="images/fig-6-15.png" />
           <figcaption>Figure 6.15</figcaption>
         </figure>
 
@@ -124,7 +124,7 @@
 
         <p>But this is far from the end of the story. If you continue to increase Q, the resonance becomes so pronounced that the high and low frequencies disappear from the signal and another effect occurs: the filter begins to oscillate at its cutoff frequency (see <a href="#fig-6-16">Figure 6.16</a>). This is a powerful sonic effect, and a filter on the edge of self-oscillation will create a range of unnatural sounds unique to the electronic synthesizer.</p>
         <figure id="fig-6-16">
-          <img url="images/fig-6-16.png" />
+          <img src="images/fig-6-16.png" />
           <figcaption>Figure 6.16</figcaption>
         </figure>
       </section>

@@ -9,12 +9,12 @@
   </head>
 
   <body>
-    <section class="chapter" title="Further With Filters" epub:type="chapter" id="ch-005">
+    <section class="chapter" title="Further With Filters" epub:type="chapter" id="ch005">
       <h2 class="title">Further With Filters</h2>
 
       <p>Last chapter, we started looking at audio filters, demonstrating (if not proving) that they are also phase-shifters, and therefore mess with your audio signals in more ways than one. In doing so, we skipped over the most important aspect of such devices: their abilities to remove parts of the audio spectrum and create new tones from old. But if you think that this is the easy bit, or that you already know how filters attenuate signals, the chances are that you’re wrong (on both counts). So let’s get stuck in, and dispel a few myths…</p>
 
-      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-001">
+      <section class="subchapter" epub:type="subchapter" id="ch005-sc001">
         <h3>Passive filters</h3>
 
         <p><a href="#fig-5-1">Figure 5.1</a> shows the passive low-pass RC filter first introduced last chapter (incidentally, you can, with a fair degree of accuracy, define a passive component as one that draws no power except that presented as the signal at its input – so resistors, capacitors and inductors are examples of passive components, while transistors and other amplifiers are not). If you read last chapter’s instalment, you may remember that we can define the cutoff frequency of an RC filter simply by choosing appropriate values for the two passive components within it. So far, so good… that tells us where in the audible spectrum the filter will take effect, but is doesn’t tell us what the extent of its effect will be.</p>
@@ -48,7 +48,7 @@
         </figure>
       </section>
 
-      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-002">
+      <section class="subchapter" epub:type="subchapter" id="ch005-sc002">
         <h3>Applying the filter</h3>
 
         <p>So let’s see what a 6dB/octave RC filter with a cutoff frequency of, say, 3kHz does to the harmonics and waveform of a 100Hz sawtooth wave. <a href="#fig-5-6">Figure 5.6</a> shows how the filter attenuates the frequencies above 3kHz. If you bother to measure the new slope, you’ll find that the additional ‘rolloff’ (as the attenuation is commonly known, for reasons which should be obvious from looking at the graph) conforms to the 6dB/octave rule mentioned above. If you now look at <a href="#fig-5-7">Figure 5.7</a> and <a href="#fig-5-8">Figure 5.8</a>, you’ll see that the first diagram shows our idealised 100Hz sawtooth waveform with all its harmonics up to 20kHz unattenuated, while the latter shows the same signal processed by our 3kHz filter. As you can see, there’s not much visible difference between the two waveforms. This is because the 3kHz cutoff frequency allows the first 30 harmonics through untouched, and it’s only the low-amplitude high-frequency harmonics that are affected. Nevertheless, the human ear’s enormous sensitivity ensures that you hear even this tiny difference as a ‘dullness’ or lack of ‘top end’ in the filtered sound.</p>
@@ -66,7 +66,7 @@
         </figure>
       </section>
 
-      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-003">
+      <section class="subchapter" epub:type="subchapter" id="ch005-sc003">
         <h3>Steepening the slope</h3>
 
         <p>Filters with a 6dB/octave characteristic are used as tone controls in stereo systems, and occasionally within synthesizers as supplementary brightness controls, but they are not much use for true synthesis. This is because they don’t modify the waveform enough to change the tone very dramatically – filtered signals just sound like the original, only duller. Clearly, a more powerful filter is required if new timbres are to be created.</p>
@@ -83,7 +83,7 @@
         <p>However, sadly, it doesn’t work as simply as that. Our model of the response of the passive RC filter requires certainassumptions about the inputs and outputs; and while you can just about satisfy these assumptions for a single RC circuit, they break down completely if you try cascading elements as I’ve just proposed. So where do we go from here?</p>
       </section>
 
-      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-004">
+      <section class="subchapter" epub:type="subchapter" id="ch005-sc004">
         <h3>Up the pole</h3>
 
         <p>If you’ve been in the synth game for a while, you’ll have heard that 12dB/octave filters are sometimes called ‘2-pole’ filters, and 24dB/octave filters are called ‘4-pole’ filters. You might think it safe to assume, therefore, that each of the 6dB/octave sections in <a href="#fig-5-9">Figure 5.9</a> is a ‘pole’. Unfortunately, you would be wrong (although not a million miles from the truth).</p>
@@ -96,7 +96,7 @@
         <p>This then, leads us to an important conclusion: while a passive 4-pole filter will tend to a 24dB/octave rolloff at high frequencies, it will, to a greater or lesser extent, exhibit regions within which the rolloff is 6dB/octave, 12dB/octave and 18dB/octave. Moreover, if you look closely, you’ll see that the transfer functions within these intermediate regions are not quite straight lines, meaning that the relationship between the frequency and the input and output powers are not as straightforward as before.</p>
       </section>
 
-      <section class="sub-chapter" epub:type="subchapter" id="ch-005-sc-005">
+      <section class="subchapter" epub:type="subchapter" id="ch005-sc005">
         <h3>Let’s get active</h3>
 
         <p>Let’s recap our position so far: we’ve designed a circuit with an theoretical rolloff of 24dB/octave but, because the filter elements interact, the cutoff frequencies of each are different. Furthermore, the ‘knee’ of each cutoff is rounded and (trust me on this) even if the sections’ cutoff frequencies were identical, the composite ‘knee’ would get no ‘sharper’. We’ve also ignored any effects on the signal in the supposedly untouched ‘pass band’ below the cutoff frequency (which we know actually suffers attenuation to an extent, and may well endure other side-effects too) and, finally, we’ve completely ignored the phase-shifting effects of each of the filter stages.</p>

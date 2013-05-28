@@ -26,6 +26,7 @@
     <item id="ch009" href="ch009.xhtml" media-type="application/xhtml+xml" />
     <item id="ch010" href="ch010.xhtml" media-type="application/xhtml+xml" />
     <item id="ch011" href="ch011.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch012" href="ch012.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="application/css" />
@@ -168,6 +169,29 @@
     <item id="fig-11-9" href="images/fig-11-9.png" media-type="image/png" />
     <item id="fig-11-10" href="images/fig-11-10.png" media-type="image/png" />
     <item id="fig-11-11" href="images/fig-11-11.png" media-type="image/png" />
+
+    <item id="fig-12-1" href="images/fig-12-1.png" media-type="image/png" />
+    <item id="fig-12-2" href="images/fig-12-2.png" media-type="image/png" />
+    <item id="fig-12-3" href="images/fig-12-3.png" media-type="image/png" />
+    <item id="fig-12-4" href="images/fig-12-4.png" media-type="image/png" />
+    <item id="fig-12-5" href="images/fig-12-5.png" media-type="image/png" />
+    <item id="fig-12-6" href="images/fig-12-6.png" media-type="image/png" />
+    <item id="fig-12-7" href="images/fig-12-7.png" media-type="image/png" />
+    <item id="fig-12-8" href="images/fig-12-8.png" media-type="image/png" />
+    <item id="fig-12-9" href="images/fig-12-9.png" media-type="image/png" />
+    <item id="fig-12-10" href="images/fig-12-10.png" media-type="image/png" />
+    <item id="fig-12-11" href="images/fig-12-11.png" media-type="image/png" />
+    <item id="fig-12-12" href="images/fig-12-12.png" media-type="image/png" />
+    <item id="fig-12-13" href="images/fig-12-13.png" media-type="image/png" />
+
+    <item id="eq-12-1" href="images/eq-12-1.png" media-type="image/png" />
+    <item id="eq-12-2" href="images/eq-12-2.png" media-type="image/png" />
+    <item id="eq-12-3" href="images/eq-12-3.png" media-type="image/png" />
+    <item id="eq-12-4" href="images/eq-12-4.png" media-type="image/png" />
+    <item id="eq-12-5" href="images/eq-12-5.png" media-type="image/png" />
+    <item id="eq-12-6" href="images/eq-12-6.png" media-type="image/png" />
+    <item id="eq-12-7" href="images/eq-12-7.png" media-type="image/png" />
+    <item id="eq-12-8" href="images/eq-12-8.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -183,5 +207,6 @@
     <itemref idref="ch009" linear="yes" />
     <itemref idref="ch010" linear="yes" />
     <itemref idref="ch011" linear="yes" />
+    <itemref idref="ch012" linear="yes" />
   </spine>
 </package>

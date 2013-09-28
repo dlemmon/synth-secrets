@@ -30,6 +30,7 @@
     <item id="ch013" href="ch013.xhtml" media-type="application/xhtml+xml" />
     <item id="ch014" href="ch014.xhtml" media-type="application/xhtml+xml" />
     <item id="ch015" href="ch015.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch016" href="ch016.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -252,6 +253,23 @@
     <item id="fig-15-14" href="images/fig-15-14.png" media-type="image/png" />
     <item id="fig-15-15" href="images/fig-15-15.png" media-type="image/png" />
     <item id="fig-15-16" href="images/fig-15-16.png" media-type="image/png" />
+
+    <item id="fig-16-1" href="images/fig-16-1.png" media-type="image/png" />
+    <item id="fig-16-2" href="images/fig-16-2.png" media-type="image/png" />
+    <item id="fig-16-3" href="images/fig-16-3.png" media-type="image/png" />
+    <item id="fig-16-4" href="images/fig-16-4.png" media-type="image/png" />
+    <item id="fig-16-5" href="images/fig-16-5.png" media-type="image/png" />
+    <item id="fig-16-6" href="images/fig-16-6.png" media-type="image/png" />
+    <item id="fig-16-7" href="images/fig-16-7.png" media-type="image/png" />
+    <item id="fig-16-8" href="images/fig-16-8.png" media-type="image/png" />
+    <item id="fig-16-9" href="images/fig-16-9.png" media-type="image/png" />
+    <item id="fig-16-10" href="images/fig-16-10.png" media-type="image/png" />
+    <item id="fig-16-11" href="images/fig-16-11.png" media-type="image/png" />
+    <item id="fig-16-13" href="images/fig-16-13.png" media-type="image/png" />
+    <item id="fig-16-14" href="images/fig-16-14.png" media-type="image/png" />
+    <item id="fig-16-15" href="images/fig-16-15.png" media-type="image/png" />
+    <item id="fig-16-16" href="images/fig-16-16.png" media-type="image/png" />
+    <item id="fig-16-17" href="images/fig-16-17.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -271,5 +289,6 @@
     <itemref idref="ch013" linear="yes" />
     <itemref idref="ch014" linear="yes" />
     <itemref idref="ch015" linear="yes" />
+    <itemref idref="ch016" linear="yes" />
   </spine>
 </package>

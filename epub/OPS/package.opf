@@ -28,9 +28,10 @@
     <item id="ch011" href="ch011.xhtml" media-type="application/xhtml+xml" />
     <item id="ch012" href="ch012.xhtml" media-type="application/xhtml+xml" />
     <item id="ch013" href="ch013.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch014" href="ch014.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
-    <item id="stylesheet" href="css/book.css" media-type="application/css" />
+    <item id="stylesheet" href="css/book.css" media-type="text/css" />
 
     <!-- images -->
     <item id="fig-1-1" href="images/fig-1-1.png" media-type="image/png" />
@@ -215,6 +216,24 @@
     <item id="eq-13-2" href="images/eq-13-2.png" media-type="image/png" />
     <item id="eq-13-3" href="images/eq-13-3.png" media-type="image/png" />
     <item id="eq-13-4" href="images/eq-13-4.png" media-type="image/png" />
+
+    <item id="fig-14-1" href="images/fig-14-1.png" media-type="image/png" />
+    <item id="fig-14-2" href="images/fig-14-2.png" media-type="image/png" />
+    <item id="fig-14-3" href="images/fig-14-3.png" media-type="image/png" />
+    <item id="fig-14-4" href="images/fig-14-4.png" media-type="image/png" />
+    <item id="fig-14-5" href="images/fig-14-5.png" media-type="image/png" />
+    <item id="fig-14-6" href="images/fig-14-6.png" media-type="image/png" />
+    <item id="fig-14-7" href="images/fig-14-7.png" media-type="image/png" />
+    <item id="fig-14-8" href="images/fig-14-8.png" media-type="image/png" />
+    <item id="fig-14-9" href="images/fig-14-9.png" media-type="image/png" />
+    <item id="fig-14-10" href="images/fig-14-10.png" media-type="image/png" />
+    <item id="fig-14-11" href="images/fig-14-11.png" media-type="image/png" />
+    <item id="fig-14-12" href="images/fig-14-12.png" media-type="image/png" />
+    <item id="fig-14-13" href="images/fig-14-13.png" media-type="image/png" />
+    <item id="fig-14-14" href="images/fig-14-14.png" media-type="image/png" />
+    <item id="fig-14-15" href="images/fig-14-15.png" media-type="image/png" />
+    <item id="fig-14-16" href="images/fig-14-16.png" media-type="image/png" />
+    <item id="fig-14-17" href="images/fig-14-17.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -232,5 +251,6 @@
     <itemref idref="ch011" linear="yes" />
     <itemref idref="ch012" linear="yes" />
     <itemref idref="ch013" linear="yes" />
+    <itemref idref="ch014" linear="yes" />
   </spine>
 </package>

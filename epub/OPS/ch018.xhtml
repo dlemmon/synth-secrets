@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+  <head>
+    <title>Priorities &amp; Triggers</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+  </head>
+
+  <body>
+    <section class="chapter" title="Priorities &amp; Triggers" epub:type="chapter" id="ch018">
+      <h2 class="title">Priorities &amp; Triggers</h2>
+
+      <p>For 17 months we’ve been talking about the nature of sounds and how we might represent them using simple analogue electronics. In a few months, we’re going to start using this knowledge to dissect real sounds and recreate them using the components of typical analogue synthesizers. But before we get carried away by all the maths and physics, we should remember that synths are, above all else, musical instruments. This means that, before we can get the best from them, we must understand and become proficient at the ways in which we can control them.</p>
+      <p>Lest this sound like a clarion call to keyboard-playing snobs everywhere, it’s worth pointing out that in the context of the typical SOS readers’ setup, the way in which you ‘control’ a synth might include playing a guitar and using some form of guitar synthesis, using vocal and/or other control signals to activate a synth using pitch/CV converters and envelope followers, or using some other form of external control, such as a sequencer. It could include waving your hands in the air in front of a proximity- or light-sensitive controller, or tweaking the resonance and filter cutoff knobs of a Roland TB303 whilst the internal sequencer cycles around a simple note pattern. Despite all this, it doesn’t take much to point out that the primary method of controlling most analogue synths is via a keyboard, which is why I will be using this interface to illustrate most of the points that I make this month.</p>
+      <p>That said, here’s a Synth Secret that I regard as axiomatic:</p>
+      <p>If we’re going to get the best from our synthesizers, we need to understand how their sounds react when played – whatever means we use to play them.</p>
+      <p>This no-brainer was brought home to me a few weeks ago when I unearthed and started playing one of my lesser-used analogue monosynths – a Yamaha CS20 – with unexpectedly unpleasant results. If you had been there, you might have heard me muttering "the old girl’s up the Swanee" (or something less printable) in dark tones. Half the notes seemed to be speaking a fraction of a second after I played them, and for a few moments, I was convinced that the trigger circuit was misbehaving. Fortunately, there was nothing wrong with my synth; I had simply forgotten that the CS20 has a high-note priority keyboard. I, being an ARP man at heart, am a low-note priority sort of guy, so I wasn’t releasing the upper notes quickly enough, thus making the low ones speak too late. If all this means nothing to you, then you should definitely read on.</p>
+
+      <h3>A Matter Of Priorities</h3>
+      <p>You would think that there’s very little to complicate using a monosynth, wouldn’t you? You just set up a sound on the control panel, press a note or send it a control voltage if it has an external input, and everything responds exactly as you tell it to – right? Well, this may be true in isolation, but not when you start to play more than one note at a time.</p>
+      <p>Hang on a second… we’re discussing monophonic synthesis. Surely, there’s never a time when you’re going to play two or more notes simultaneously, is there? Actually, in all likelihood, you press two notes simultaneously every time you play a line on your synth. Whether you’re playing a simple melody, a bass riff, an accompaniment, or an Emerson-esque lead extravaganza, it’s unlikely that you’ll release every note before playing the next. If you try, you’ll probably play very unevenly, in a disjointed staccato fashion. So what effect do these little overlaps have?</p>
+      <p>Look at <a href="#fig-18-1">Figure 18.1</a>. This shows two representations for the simple four-note sequence D-F-A-C. Each note lasts for four beats, but the start of each note is separated from the previous by one beat. OK, so the notation in the upper stave is not strictly according to the rules (there should be a key signature, rests and so on) but we’re not going to worry about that. Furthermore, the bar lasts for seven beats (which puts it in 7/4) but I’m an old prog-rocker, so we’re not going to give that a second thought, either.</p>
+      <figure id="fig-18-1">
+        <img src="images/fig-18-1.png" />
+        <figcaption>Figure 18.1</figcaption>
+      </figure>
+      <p>Now look at the lower representation of the sequence. This is my personal shorthand for depicting the pitch of the note, when it starts, and how long it lasts. It’s very similar to the grid edit pages of some sequencers and drum programs, so I imagine that you’ll have seen something similar elsewhere. As you can see, the first note starts on beat one and lasts until beat five. The second starts on beat two and lasts until beat six… and so on.</p>
+      <p>If we play this sequence (which I’ll call the ‘input’) on an organ or any other truly polyphonic keyboard, we hear the four notes speak on successive beats. After that, we then hear them ending on successive beats after the fourth note has spoken.</p>
+      <p>Unfortunately, and by definition, a monophonic synthesizer can only produce one note at a time. Fortunately, at some point during its design, someone will have decided how it will respond to this situation.</p>
+      <p>The most common response is called ‘lowest-note priority’. This means that the lowest note held at any time is the one that the synthesizer will produce. That might sound simple, but <a href="#fig-18-2a">Figure 18.2a</a> shows what might happen to our sequence when played on a lowest-note-priority monosynth. As you can see, the output is quite different from the input. Because it’s the lowest note, the first note is held for its entire duration, and the following notes can only speak when they become the lowest held notes.</p>
+      <figure id="fig-18-2a">
+        <img src="images/fig-18-2a.png" />
+        <figcaption>Figure 18.2a</figcaption>
+      </figure>
+      <p>The other common response is ‘highest-note priority’. In direct contrast to lowest-note priority, this means that the highest note depressed at any time is the one that the synthesizer will play. <a href="#fig-18-2b">Figure 18.2b</a> shows what will happen to our sequence when played on a highest-note-priority monosynth. At least the notes speak at the right time with this approach, but they are curtailed when you play the higher ones. But before you suggest making all monosynths highest-note priority, I’m afraid that it isn’t a panacea (as we’ll see in a moment).</p>
+      <figure id="fig-18-2b">
+        <img src="images/fig-18-2b.png" />
+        <figcaption>Figure 18.2b</figcaption>
+      </figure>
+      <p>Before explaining why not, let’s look at two less common priority systems. The first of these is ‘last-note priority’. <a href="#fig-18-2c">Figure 18.2c</a> shows the same sequence replayed using a monosynth based on this system. As you can see, the last (ie. most recent) note has priority, so you always hear the last note you pressed. Of course, this looks identical to the results you get with highest-note priority. But bear with me a moment.</p>
+      <figure id="fig-18-2c">
+        <img src="images/fig-18-2c.png" />
+        <figcaption>Figure 18.2c</figcaption>
+      </figure>
+      <p>The last of the four schemes is ‘first-note priority’. In this case the first (rather than the most recent) note has priority. <a href="#fig-18-2d">Figure 18.2d</a> shows the result. This time, the output looks identical to that of the lowest-note-priority synthesizer.</p>
+      <figure id="fig-18-2d">
+        <img src="images/fig-18-2d.png" />
+        <figcaption>Figure 18.2d</figcaption>
+      </figure>
+      <p>So, can we say that last-note priority is the same as highest-note priority, and first-note the same as lowest-note? Sorry, but in general, this is not true. It only seems like that because I chose an upward sequence of four notes to illustrate the problem.</p>
+      <p>So let’s look at the converse of this, and take a simple downward sequence. <a href="#fig-18-3a">Figure 18.3a</a>, <a href="#fig-18-3b">Figure 18.3b</a>, <a href="#fig-18-3c">Figure 18.3c</a>, and <a href="#fig-18-3d">Figure 18.3d</a> show the same four priority systems, but the results are quite different from before.</p>
+      <figure id="fig-18-3a">
+        <img src="images/fig-18-3a.png" />
+        <figcaption>Figure 18.3a</figcaption>
+      </figure>
+      <figure id="fig-18-3b">
+        <img src="images/fig-18-3b.png" />
+        <figcaption>Figure 18.3b</figcaption>
+      </figure>
+      <figure id="fig-18-3c">
+        <img src="images/fig-18-3c.png" />
+        <figcaption>Figure 18.3c</figcaption>
+      </figure>
+      <figure id="fig-18-3d">
+        <img src="images/fig-18-3d.png" />
+        <figcaption>Figure 18.3d</figcaption>
+      </figure>
+      <p>With this sequence, lowest-note priority offers the same results as last-note priority, while first-note priority imitates highest-note priority. This is opposite to the result we achieved when playing up the keyboard, and I hope that the diagrams make it obvious why! Furthermore, <a href="#fig-18-3b">Figure 18.3b</a> explains why I said that highest-note priority is no panacea… it only lets notes speak on time when you play up the keyboard.</p>
+      <p>Let’s now complicate matters by playing a four-note sequence that changes direction. Study <a href="#fig-18-4a">Figure 18.4a</a>, <a href="#fig-18-4b">Figure 18.4b</a>, <a href="#fig-18-4c">Figure 18.4c</a>, and <a href="#fig-18-4d">Figure 18.4d</a>, which show the input and outputs for such a sequence. As you can see, the results are quite unexpected, and each is different from the other. Indeed, two of the sequences play just three notes, and the timing can be very odd compared with the original, regular beat.</p>
+      <figure id="fig-18-4a">
+        <img src="images/fig-18-4a.png" />
+        <figcaption>Figure 18.4a</figcaption>
+      </figure>
+      <figure id="fig-18-4b">
+        <img src="images/fig-18-4b.png" />
+        <figcaption>Figure 18.4b</figcaption>
+      </figure>
+      <figure id="fig-18-4c">
+        <img src="images/fig-18-4c.png" />
+        <figcaption>Figure 18.4c</figcaption>
+      </figure>
+      <figure id="fig-18-4d">
+        <img src="images/fig-18-4d.png" />
+        <figcaption>Figure 18.4d</figcaption>
+      </figure>
+      <p>At this point, I could continue to draw increasingly complex sequences, and show you how the four priority schemes make a mess of your playing. But I won’t, because I suspect that you could now do this for yourselves without any further help from me!</p>
+
+      <h3>The Real World</h3>
+      <p>Of course, Figures <a href="#fig-18-2a">18.2a</a> to <a href="#fig-18-4d">18.4d</a> are extreme examples. It’s highly unlikely that you will hang on to a note for three full beats after you intended to release it, but the principle remains the same, no matter how long or short the overlap. So here are a couple of rules to remember:</p>
+      <p><em>(i): Hang on to a lower note for too long on a lowest-note-priority monosynth, and the following higher note will speak too late, making your playing sound uneven and off the beat. The same is true if you hang on to a higher note too long on a highest-note-priority monosynth, and then follow it with a lower note.</em></p>
+      <p><em>(ii): Hang on to a lower note too long on a highest-note-priority monosynth, and the following higher note will still speak on time, so you’ll get away with your bad technique. The same is true if you hang on to a higher note too long on a lowest-note-priority monosynth, and follow it with a lower note.</em></p>
+      <p>As you can see, I’ve limited these ‘rules’ to lowest- and highest-note-priority monosynths because these are by far the most common, and therefore the ones that you’re most likely to encounter. However, since all keyboard playing involves playing up and down the keyboard, no matter which synth you’re playing, you’ll trip over these problems if you hold notes too long. The only exception to this will be a last-note-priority monosynth which, in general, will always play the notes at the moment that you press the keys.</p>
+
+      <h3>Triggers</h3>
+      <p>Up to this point, we’ve treated synthesizers as monophonic organs, and ignored the actions of their contour generators and the triggers that initiate their actions. But we can’t carry on doing this indefinitely. To illustrate this, let’s take the lowest-note-priority synth in <a href="#fig-18-4a">Figure 18.4a</a> as an example. In this case, the synthesizer holds the first note for its entire four-beat duration because this is the lowest note in the sequence. When this note expires, the synth then plays the remaining beat of the second note followed by the third note and, finally, the fourth note. But to do this, it must still be producing a sound at beats 4, 5, 6 and 7. If the contour generators have already closed the VCF, or reduced the gain of the VCA to zero, no sound will be forthcoming whether you play another note or not – see <a href="#fig-18-5">Figure 18.5</a>.</p>
+      <figure id="fig-18-5">
+        <img src="images/fig-18-5.png" />
+        <figcaption>Figure 18.5</figcaption>
+      </figure>
+      <p>To overcome this, we must cast our minds back to part seven of this series (see SOS November ‘99) and turn our thoughts once again to the triggers that initiate the contour generators which shape the loudness and tone of our sounds (see <a href="#fig-18-6">Figure 18.6</a>). However, we must now extend these ideas to encompass keyboard priorities as well as the triggers and contours we discussed months ago.</p>
+      <figure id="fig-18-6">
+        <img src="images/fig-18-6.png" />
+        <figcaption>Figure 18.6</figcaption>
+      </figure>
+      <p>As you know, the modules in <a href="#fig-18-6">Figure 18.6</a> need something to produce the trigger that initiates the contour generators, and to tell the VCO what pitch to produce. Bearing in mind what I said at the start of this article, let’s simplify things and say that for the purposes of discussion here, the ‘something’ required to initiate the trigger is the key that you press on the synthesizer’s keyboard.</p>
+      <p>Now let’s illustrate this further. <a href="#fig-18-7">Figure 18.7</a> shows a simple keyboard synthesizer with a single VCO, a single contour generator, and a single VCA. It has no filter, so it can’t shape the tone of the note, but it’s perfectly adequate for our discussion. As you can see, the keyboard produces three output voltages. These are: a pitch CV to determine the pitch of the note; a Trigger to tell the contour generator when to ‘fire’; and a Gate that tells the contour generator how long you keep a key (or keys) depressed.</p>
+      <figure id="fig-18-7">
+        <img src="images/fig-18-7.png" />
+        <figcaption>Figure 18.7</figcaption>
+      </figure>
+      <p>Now let’s apply the ideas contained in <a href="#fig-18-7">Figure 18.7</a> to the rising scale in <a href="#fig-18-2a">Figure 18.2a</a>. Can you see the problems? For example, does the keyboard send a trigger only when all existing notes are released and a new key is pressed in isolation (so-called ‘single triggering’)? If so, do the contour generators allow sound to pass for the whole duration of the Gate? Alternatively, does the keyboard generate a trigger whenever you press a key, irrespective of whether existing notes are depressed or not (so-called ‘multi-triggering’)?</p>
+      <p>Let’s look at the first of these cases applied to a lowest-note-priority keyboard. <a href="#fig-18-8">Figure 18.8</a> shows that, provided that the sustain is non-zero for the duration of the Gate, all the notes play, albeit at the wrong times, and without the correct articulation of the individual notes (this, by the way, is exactly how a Minimoog works).</p>
+      <figure id="fig-18-8">
+        <img src="images/fig-18-8.png" />
+        <figcaption>Figure 18.8</figcaption>
+      </figure>
+      <p>In contrast, <a href="#fig-18-9">Figure 18.9</a> (which depicts the lowest-note-priority multi-triggering of an ARP synth) is nasty, because it shows that all four articulations occur during the first note, not when the other notes finally speak (this is where we diverge from what we learned in part seven of this series, which assumed last-note priority throughout). OK, so I’ve grossly exaggerated the extension of each of the notes, but the problem can become severe, even when you drag your notes just a little. Where you should have a release phase of the previous note and then a nice, sparkling, contoured new note, the last few moments of the old note are affected by the attack phase of the next contour. This can sound very unnatural, and is it a common performance error.</p>
+      <figure id="fig-18-9">
+        <img src="images/fig-18-9.png" />
+        <figcaption>Figure 18.9</figcaption>
+      </figure>
+      <p>Indeed, further extending the ideas mentioned in part seven, I can make <a href="#fig-18-9">Figure 18.9</a> look and sound even worse by replacing its contour generator with one that ‘resets to zero’ each time it receives a new trigger (see <a href="#fig-18-10">Figure 18.10</a>). The sustained D is now chopped up into sections, with no articulation of the later notes. Horrid!</p>
+      <figure id="fig-18-10">
+        <img src="images/fig-18-10.png" />
+        <figcaption>Figure 18.10</figcaption>
+      </figure>
+      <p>But this still isn’t the strangest trigger characteristic. It’s not uncommon to find a synth that retriggers when you release previous notes, provided that at least one note is still depressed (see <a href="#fig-18-11">Figure 18.11</a>). This can be quite useful, because it makes sounds speak correctly when you release the previous notes, but it makes slurs impossible because, in general, you can’t make notes run into each other.</p>
+      <figure id="fig-18-11">
+        <img src="images/fig-18-11.png" />
+        <figcaption>Figure 18.11</figcaption>
+      </figure>
+
+      <h3>Putting It All Together</h3>
+      <p>So where does this leave us? We have four pitch-priority schemes, and six or more permutations of triggering/contouring. This means that there are at least 24 keyboard characteristics that you might encounter when playing a monophonic synthesizer, each of which can demand a slightly different playing style if you are to achieve optimal results.</p>
+      <p>You could, I suppose, take the simplistic view and say that, if you play perfectly or sequence carefully, none of the above limitations will arise. But you can also turn this view around, and put some of the ‘limitations’ of these priority systems to your advantage. Here’s an example of a technique that was used by numerous soloists in the ‘70s.</p>
+      <p>Using a multi-triggering, highest-note-priority synth, hold a low note (say, a bottom C) using one of the fingers of your left hand or, if you prefer, a wooden stake, a Hitler Youth dagger, or something similar (fans of Keith Emerson will know what I mean). Then play a solo using your right hand. If you play legato higher up the scale, the synth will perform conventionally and each note will be articulated correctly. But if you cease playing, the pitch will drop almost instantaneously to the bottom C and, if the VCF and VCA sustains are greater than zero, continue to produce this note until you start playing again.</p>
+      <p>You can develop this technique still further. Consider this: when you let the pitch drop to bottom C, you have not pressed a key (you have only released one) so – on most synths – the low note will not be articulated. This can be an expressive and subtle performance feature. If you now add a little portamento to the patch, the synth will swoop down without articulation, giving the note a different character from the main body of the solo. Then, when you press another key to continue playing, a trigger occurs, the contour generators do their stuff, and the pitch swoops up in a flurry of increasing amplitude and opening filters.</p>
+      <p>Many players used this technique to play impossible solos spanning two or three octaves. They did this by leaving short gaps between each of the notes played by their right hands, thus causing the bottom note to play between each. Played as a rapid staccato with just a touch of portamento, and preferably with a huge Mellotron chord under your left hand, the result is extremely distinctive. It makes you sound like a virtuoso (well, actually, it makes you sound like Rick Wakeman) even though you can achieve it using just one finger of your right hand.</p>
+
+      <h3>The Real World</h3>
+      <p>I thought that it would be fun to finish this article by taking a short tour of some common monosynths to study their keyboard priorities and triggering regimes. So let’s start with the most famous of all – the Minimoog. This, as you would expect from the world’s first integrated synthesizer, is one of the simplest of the bunch and, as stated above, uses lowest-note priority and single triggering. The same is true of the Minimoog’s younger and less well-endowed little brother, the Prodigy. ARPs such as the Axxe and Explorer also use a lowest-note priority system, but retrigger when you play a higher note – even though you still hear the pitch of the lower! Indeed, my Axxe often (but not always) retriggers when you release higher notes, too. I suspect that this is a fault, but I’m not complaining.</p>
+      <p>Jumping across to Japan, the Roland SH09 is another single-trigger keyboard, but with highest-note priority. The same is true of the Korg 700S, the Korg MS20, and the Yamaha CS20 which, of course, is where this article began. However, other Rolands respond differently. For example, the SH2000 has highest-note priority and retriggers both on pressing and releasing any key (except the last).</p>
+      <p>I should also mention the Crumar Spirit. This boasts a last-note-priority system with a unique twist… It remembers the first note that you play and, once you have released all subsequent notes, it returns to this (provided, of course, that you are still holding it). This means that its keyboard combines last-note and first-note priorities! It may sound crazy, but it makes the Spirit an almost uniquely playable instrument.</p>
+      <p>So there you have it… even if you ignore the sound generation itself, not all monosynths are equal. Indeed, it seems that the Pacific Ocean determines how you play your keyboards. American synths are, almost without exception, lowest-note priority, while Japanese ones are predominantly highest-note priority.</p>
+      <p>This provokes an interesting thought. Since the heyday of the American monosynths was from 1970 to 1975, and the Japanese manufacturers arguably took over from 1976 to 1981, it’s also true to say that highest-note priority overtook lowest-note priority as the dominant system. Maybe this is another reason why players who cut their teeth on Moogs and ARPs disliked later monosynths. In music, as in all else, we’re always happiest with the system we learned first.</p>
+      <p>Consequently, when you choose a monosynth, you should ask yourself whether you prefer lowest-note, highest-note, or last-note priority (these being the three that you are likely to encounter) and whether you prefer single- or multi-triggering. These serious considerations could prove as important to you as the action of a guitar, or the placement of the individual drums in a kit.</p>
+      <p>Next month, we’ll start looking at duophonic keyboards and beyond. Until then, have fun prioritising</p>
+    </section>
+  </body>
+</html>

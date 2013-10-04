@@ -31,6 +31,7 @@
     <item id="ch014" href="ch014.xhtml" media-type="application/xhtml+xml" />
     <item id="ch015" href="ch015.xhtml" media-type="application/xhtml+xml" />
     <item id="ch016" href="ch016.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch017" href="ch017.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -270,6 +271,28 @@
     <item id="fig-16-15" href="images/fig-16-15.png" media-type="image/png" />
     <item id="fig-16-16" href="images/fig-16-16.png" media-type="image/png" />
     <item id="fig-16-17" href="images/fig-16-17.png" media-type="image/png" />
+
+    <item id="eq-17-1" href="images/eq-17-1.png" media-type="image/png" />
+    <item id="fig-17-1" href="images/fig-17-1.png" media-type="image/png" />
+    <item id="fig-17-2" href="images/fig-17-2.png" media-type="image/png" />
+    <item id="fig-17-3" href="images/fig-17-3.png" media-type="image/png" />
+    <item id="fig-17-4" href="images/fig-17-4.png" media-type="image/png" />
+    <item id="fig-17-5" href="images/fig-17-5.png" media-type="image/png" />
+    <item id="fig-17-6" href="images/fig-17-6.png" media-type="image/png" />
+    <item id="fig-17-7" href="images/fig-17-7.png" media-type="image/png" />
+    <item id="fig-17-9" href="images/fig-17-9.png" media-type="image/png" />
+    <item id="fig-17-10" href="images/fig-17-10.png" media-type="image/png" />
+    <item id="fig-17-11" href="images/fig-17-11.png" media-type="image/png" />
+    <item id="fig-17-12" href="images/fig-17-12.png" media-type="image/png" />
+    <item id="fig-17-13" href="images/fig-17-13.png" media-type="image/png" />
+    <item id="fig-17-14" href="images/fig-17-14.png" media-type="image/png" />
+    <item id="fig-17-15" href="images/fig-17-15.png" media-type="image/png" />
+    <item id="fig-17-16" href="images/fig-17-16.png" media-type="image/png" />
+    <item id="fig-17-17" href="images/fig-17-17.png" media-type="image/png" />
+    <item id="fig-17-18" href="images/fig-17-18.png" media-type="image/png" />
+    <item id="fig-17-19" href="images/fig-17-19.png" media-type="image/png" />
+    <item id="tab-17-1" href="images/tab-17-1.png" media-type="image/png" />
+    <item id="tab-17-2" href="images/tab-17-2.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -290,5 +313,6 @@
     <itemref idref="ch014" linear="yes" />
     <itemref idref="ch015" linear="yes" />
     <itemref idref="ch016" linear="yes" />
+    <itemref idref="ch017" linear="yes" />
   </spine>
 </package>

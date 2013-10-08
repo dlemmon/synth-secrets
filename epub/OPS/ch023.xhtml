@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+  <head>
+    <title>Formant Synthesis</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+  </head>
+
+  <body>
+    <section class="chapter" title="Formant Synthesis" epub:type="chapter" id="ch023">
+      <h2 class="title">Formant Synthesis</h2>
+
+      <p>Last month, we discussed a way of emulating acoustic musical instruments using short delay lines such as spring reverbs and analogue reverb/echo units. At the end of that article, I posed the following question: "Couldn’t we have avoided this talk of echoes, RT60s, room modes, and all that other stuff, and achieved the same result with a bunch of fixed (or ‘formant’) filters?". This month, we’re going to answer that question. This is the 23rd article in a 63-part series. Read all parts</p>
+
+      <h3>A Little More On Filters</h3>
+      <p>Let’s start by remembering the four types of filters that I first described in Parts 4, 5 and 6 of this series (SOS August to October ‘99). These are the low-pass filter, the high-pass filter, the band-reject filter, and the band-pass filter (see <a href="#fig-23-1">Figure 23.1</a>). OK, we’re all sick to the back teeth of descriptions of the low-pass and high-pass filters in conventional synthesis. No matter. This month we’re going to concentrate on the band-pass filter (or BPF), so read on…</p>
+      <figure id="fig-23-1">
+        <img src="images/fig-23-1.png" />
+        <figcaption>Figure 23.1</figcaption>
+      </figure>
+      <p>Imagine that we place several of the band-pass filters shown in 1(d) in series (see <a href="#fig-23-2">Figure 23.2</a>). It should be obvious that at the peak, the signal remains unaffected. After all, a gain change of 0dB remains a gain change of 0dB no matter how many times you apply it. But in the ‘skirt’ of the filter, the gain drops increasingly quickly as you add more filters to the signal path (see <a href="#fig-23-3">Figure 23.3</a>).</p>
+      <figure id="fig-23-2">
+        <img src="images/fig-23-2.png" />
+        <figcaption>Figure 23.2</figcaption>
+      </figure>
+      <figure id="fig-23-3">
+        <img src="images/fig-23-3.png" />
+        <figcaption>Figure 23.3</figcaption>
+      </figure>
+      <p>As you can see, the band-pass region of the combined filter tightens up considerably as you add more filters to the series. This, of course, is directly analogous to the situation wherein we add more poles to a low-pass filter circuit to increase the cut-off rate from 6dB/octave to 12dB/octave, 18dB/octave, 24dB/octave… and so on.</p>
+      <p>Now let’s look at the case in which we place the band-pass filters in parallel rather than in series (see <a href="#fig-23-4">Figure 23.4</a>). If we set the centre frequency ‘Fc’ of all the filters to be the same, the result is no different from using a single filter and, depending upon the make-up gain in the mixer, will look like <a href="#fig-23-1">Figure 23.1(d)</a>. Much more interesting is the response when you set Fc to be different for each filter. You then obtain the result shown in <a href="#fig-23-6">Figure 23.6(a)</a>. As you can see, the broad responses overlap considerably, giving rise to a frequency response with many small bumps in the pass-band (the pass-band is so-called because it is the range of frequencies in which the signal can pass relatively unaffected through the system). Outside the pass-band, the gain tapers off until, at the extremes, little signal passes.</p>
+      <figure id="fig-23-4">
+        <img src="images/fig-23-4.png" />
+        <figcaption>Figure 23.4</figcaption>
+      </figure>
+      <figure id="fig-23-6">
+        <img src="images/fig-23-6.png" />
+        <figcaption>Figure 23.6</figcaption>
+      </figure>
+      <p>Let’s now add more BPFs to each signal path (see <a href="#fig-23-5">Figure 23.5</a>) to sharpen the responses. Provided that the centre frequencies of each of the filters in a given path are the same (I’ve labelled these f1, f2 and f3) but are different from those of the other paths, we obtain three distinct peaks in the spectrum, as shown in <a href="#fig-23-6">Figure 23.6(b)</a>. The filters severely attenuate any signal lying outside these narrow pass-bands, and the output takes on a distinctive new character.</p>
+      <figure id="fig-23-5">
+        <img src="images/fig-23-5.png" />
+        <figcaption>Figure 23.5</figcaption>
+      </figure>
+
+      <h3>A Little More On Modelling</h3>
+      <p>If the frequency response in <a href="#fig-23-6">Figure 23.6(b)</a> looks familiar, let me refer you back to last month’s SOS and, in particular, the diagram reproduced here as <a href="#fig-23-7">Figure 23.7</a>, as we discovered last month, may be the result of passing the signal through a delay unit such as a spring reverb or bucket-brigade device. It also represents a single set of the ‘room modes’ that arise as a consequence of the sound bouncing around inside a reverberant chamber.</p>
+      <figure id="fig-23-7">
+        <img src="images/fig-23-7.png" />
+        <figcaption>Figure 23.7</figcaption>
+      </figure>
+      <p>OK, so <a href="#fig-23-6">Figure 23.6(b)</a> and <a href="#fig-23-7">Figure 23.7</a> look rather different, but it’s not too difficult to design and configure a set of band-pass filters that responds similarly to <a href="#fig-23-7">Figure 23.7</a>. You may need to add a ‘bypass’ path to ensure that an appropriate amount of signal passes between pass-bands, but we’re going to ignore that. Furthermore, if the Fcs are precise (and this is yet another instance of the phenomenon known as time/frequency duality, discussed last month) the filter-bank will impose the appropriate set of delays upon any signal passed through it.</p>
+      <p>You may also recall that, last month, we used three delay units to achieve a superficial emulation of a three-dimensional space. We then shortened the delay times of each unit until the dimensions of our ‘virtual’ reverberant chamber were no larger than the body of a guitar or violin. It’s a small leap of intuition, therefore, to realise that we could use three banks of band-pass filters to achieve the same effect (see <a href="#fig-23-8">Figure 23.8</a>).</p>
+      <figure id="fig-23-8">
+        <img src="images/fig-23-8.png" />
+        <figcaption>Figure 23.8</figcaption>
+      </figure>
+      <p>The most important thing about this configuration is that the frequency response of the filter banks, and the timbre that they therefore impose on the signal, is independent of the pitch of the source. To see how this differs from conventional synthesizer filtering (in which the filter cutoff frequency often tracks the pitch of the note being played) consider <a href="#fig-23-9">Figure 23.9</a> and <a href="#fig-23-10">Figure 23.10</a>.</p>
+      <figure id="fig-23-9">
+        <img src="images/fig-23-9.png" />
+        <figcaption>Figure 23.9</figcaption>
+      </figure>
+      <figure id="fig-23-10">
+        <img src="images/fig-23-10.png" />
+        <figcaption>Figure 23.10</figcaption>
+      </figure>
+      <p>The first of these shows the spectral structure of a 100Hz sawtooth wave played through a set of band-pass filters with Fcs of 400Hz, 800Hz and 1200Hz. As you can see, the harmonics that lie at 400Hz, 800Hz and 1200Hz are amplified in relation to the rest of the spectrum, thus emphasising (in this case) the fourth, eighth and 12th harmonics.</p>
+      <p>The second uses exactly the same filter bank but, because the source signal has its fundamental at 200Hz (ie. one octave higher) it’s the third, seventh, and 11th harmonics that are exaggerated. As one would expect, this changes the character of the sound considerably.</p>
+      <p>At this point, you may be asking why you can’t use a graphic equaliser (or a multi-band fixed filter such as the one shown in <a href="#fig-23-10">Figure 23.10</a>) to create these distinctive peaks in your sounds’ spectra. The reason for this is simple: the peaks of the equalisers that comprise a conventional filter-bank are too broad, so each filter boosts a wide range of frequencies. This is in sharp contrast to room modes and instrument modes which are, well… sharp (see <a href="#fig-23-11">Figure 23.11</a>).</p>
+      <figure id="fig-23-11">
+        <img src="images/fig-23-11.png" />
+        <figcaption>Figure 23.11</figcaption>
+      </figure>
+      <p>Clearly, we need something more specialised if we are to model cavity modes using filters. But before we come to this, let’s expand our horizons beyond simple peaks of fixed frequencies and fixed gains. We need to consider…</p>
+
+      <h3>Things That Make You Go "Hmm" (Well, "Aaah" Anyway)</h3>
+      <p>Let’s ask ourselves what happens when the spectral peaks in the signal are less regular – ie. not evenly spaced, not all of equal gain, and not all of equal width. Furthermore, can we describe what happens when their positions (their Fcs) are not constant? To investigate this, we’re going to consider the most flexible musical instrument and synthesizer of them all… the human voice.</p>
+      <p>Because you share the basic format of your sound production system with about six billion other bipedal mammals, it’s safe to say that all human vocalisations – whatever the language, accent, age or gender – share certain acoustic properties. To be specific, we all push air over our vocal cords to generate a pitched signal with a definable fundamental and multiple harmonics. We can all tighten and relax these cords to change the pitch of this signal. Furthermore, we can all produce vocal noise. The pitched sounds are generated deep in our larynx, so they must pass through our throats, mouths, and noses before they reach the outside world through our lips and nostrils. And, like any other cavity, this ‘vocal tract’ exhibits resonant modes that emphasise some frequencies while suppressing others. In other words, the human vocal system comprises a pitch-controlled oscillator, a noise generator, and a set of band-pass filters! The resonances of the vocal tract, and the spectral peaks that they produce, are called ‘formants’, a word derived from the Latin ‘formare’, ‘to shape’.</p>
+      <p>Measurement and acoustic theory have demonstrated that the centre frequencies of these formants are related to simple anatomical properties such as the length and cross-section of the tube of air that comprises the vocal tract. And, since longer tubes have lower fundamentals than shorter ones, it’s a fair generalisation to suppose that adult human males will have deeper voices than adult human females or human children.</p>
+      <p>Now, ignoring the sounds of consonants for a moment, it’s the formants that make it possible for us to differentiate different vowel sounds from one another (consonants are, to a large degree, noise bursts shaped by the tongue and lips, and we can model these using amplitude contours rather than spectral shapes). The following table shows the first three formant frequencies (Fcs) for a range of common English vowels spoken by an adult male. Note that, unlike many of the characteristics we have discussed in the past 22 instalments of Synth Secrets, these do not follow any recognisable harmonic series. Nor do they conform to series defined by Bessel functions. This is yet another reason why the filters within graphic EQs and fixed filter banks are unsuitable. Such filters tend to be spaced regularly in octaves or fractions of octaves, whereas formants are distributed in seemingly random fashion throughout the spectrum.</p>
+      <p>VOWEL SOUND AS IN… F1 F2 F3</p>
+      <p>"ee" leap 270 2300 3000</p>
+      <p>"oo" loop 300 870 2250</p>
+      <p>"i" lip 400 2000 2550</p>
+      <p>"e" let 530 1850 2500</p>
+      <p>"u" lug 640 1200 2400</p>
+      <p>"a" lap 660 1700 2400</p>
+      <p>Given just these three frequencies you can, with precise filters, create passable imitations of these vowel sounds. This is because (as demonstrated by experiments as long ago as the 1950s) your ears can differentiate one vowel from another with only the first three formants present. So – provided that you use an oscillator with a rich harmonic spectrum – you can patch a modular analogue synthesizer to say "eeeeeeeeee" (as shown in <a href="#fig-23-12">Figure 23.12</a>). If you have almost unlimited funds and space, plus a particularly chunky power supply, you can add more formants to make the resulting sound more ‘human’. With six or more formants, the results can be very lifelike indeed.</p>
+      <figure id="fig-23-12">
+        <img src="images/fig-23-12.png" />
+        <figcaption>Figure 23.12</figcaption>
+      </figure>
+      <p>Mind you, in real life, things are far from this simple. Every human vocal tract is different from every other, so the exact positions of the formants differ from person to person. In addition, the amplitudes of the formants are not equal, and the widths of the formants (expressed as ‘Q’) vary from person to person, and from sound to sound.</p>
+      <p>Although it’s tempting to shy away from mathematical expressions, Q is a simple way to express and understand the sharpness of a band-pass filter or formant, and is defined in the following formula:</p>
+      <p>This states that you calculate the quantity ‘Q’ by dividing the centre frequency of the curve (in Hz) by the half-width of the EQ curve (measured at half the maximum gain).</p>
+      <p>Let’s take, for example, an EQ curve with a centre frequency of 1kHz and a width (at half the maximum gain) of 200Hz. The Q would therefore be 1,000/100, which is 10. Similarly, if the centre frequency remained at 1kHz but the width was just 50Hz (a shape represented by the blue curves in <a href="#fig-23-11">Figure 23.11</a>) the Q would be 40 – a very ‘tight’ response indeed.</p>
+      <p>Clearly, the sharper the EQ curve or formant, and the fewer frequencies that it affects in any significant fashion, the higher the quantity ‘Q’ becomes. Conversely, if the curve is very broad (the red curves in <a href="#fig-23-11">Figure 23.11</a>) and significantly affects a wide range of frequencies, the Q is low.</p>
+      <p>Understanding this, we can extend the above table, adding amplitude information to create formants that are more accurate. Let’s take "ee" as an example…</p>
+      <p>VOWEL SOUND "EE" GAIN (dB) Q</p>
+      <p>F1 270 0 5</p>
+      <p>F2 2300 -15 20</p>
+      <p>F3 3000 -9 50</p>
+      <p>The mathematically inclined among you may have noticed that these Qs (which increase with Fc) suggest a bandwidth for all the formants of around 100Hz. This is indeed the case for a man’s voice, although the bandwidth increases somewhat with formant frequency. Women’s formants are – as a rule – slightly wider than men’s (no sniggering at the back, please).</p>
+      <p>Therefore, to make our vocal synthesizer more authentic, we must make the Qs of our band-pass filters controllable, and add a set of VCAs, as shown in <a href="#fig-23-13">Figure 23.13</a>. Having done this, we’re perfectly justified in calling our configuration a ‘formant synthesizer’.</p>
+      <figure id="fig-23-13">
+        <img src="images/fig-23-13.png" />
+        <figcaption>Figure 23.13</figcaption>
+      </figure>
+      <p>Unfortunately, this still isn’t the end of the story, because the sound generated in <a href="#fig-23-13">Figure 23.13</a> is static, whereas human vowel sounds are not. We need to make the band-pass filters controllable, applying CVs to the filter Fcs and the VCAs’ gains. If we analyse human speech, we find that the second formant is often the one that moves most, which suggests that this the most important clue to understanding speech. Furthermore, we would discover that the relative gains of the formants can swap… sometimes the lowest formant is the loudest, and sometimes it’s the second or third.</p>
+      <p>Knowing all this suggests a novel approach to speech transmission – at least for vowel sounds. Instead of transmitting 44,100 16-bit samples per second down a line of limited bandwidth, we could send a handful of parameters – the formant frequencies, gains and Qs – once every few milliseconds, and reconstruct the voice at the other end of the line. If we restrict ourselves to, say, six formants, and update the parameters 100 times per second, we would require, at most, 1800 words of information, cutting the required bandwidth by a factor of almost 25.</p>
+      <p>Unfortunately, interesting as this is, I can see Sound On Sound’s editors glowering at me from the wings. This is because, if we proceed any further down this route, we’ll find ourselves firmly within speech recognition and resynthesis territory, and that’s a step too far for Synth Secrets.</p>
+
+      <h3>Practical Formant Synthesis</h3>
+      <p>Just as the precise positions and shapes of the formants in a human voice allow you to recognise the identity of the speaker as well as the vowel sound spoken, the exact natures of the static formants make the timbres of a family of acoustic instruments consistent and recognisable from one instrument to the next, and over a wide range of played pitches. This is down to simple mechanics. For example, all Spanish guitars are of similar shape, size, and construction, so they possess similar formants and exhibit a consistent tonality that your ears can distinguish from say, a plucked viola playing the same pitch. It therefore follows that imitating these formants is a big step forward in realistic synthesis.</p>
+      <p>Of course, you may not have access to the room full of modules demanded by the practical configuration of <a href="#fig-23-13">Figure 23.13</a>, so let’s ask whether there are any simpler and cheaper ways to experiment with formant synthesis.</p>
+      <p>Firstly, although I discounted graphic EQs and fixed filters earlier in this article, there is a common type of equaliser that is quite suitable for imitating fixed formants. This is the parametric equaliser, which typically offers three controls per EQ: the centre frequency (often called the ‘resonant’ frequency), the gain, and the ‘Q’. These, as you can see, are exactly the controls needed to perform as required in <a href="#fig-23-13">Figure 23.13</a>. Sure, they’re not dynamically changeable, but that’s an unnecessary facility if we wish to synthesize hollow-bodied instruments such as guitars and the family of orchestral strings.</p>
+      <p>In principle, you can set up a parametric EQ to impart the tonal qualities of families of instruments. This then allows you to adjust other parts of the synthesizer – such as the source waveform, a low-pass filter, or brightness and loudness contours – to fine-tune the ‘virtual instrument’. For example, you could filter the waveform and shorten the contours’ decays to swap between the sound of bright new guitar strings, and the dull ‘thunk’ that emanates from the 10-year-old rubber bands on my aged Eko 12-string.</p>
+      <p>But what if you want to make your synth talk? While fixed formants are sufficient for synthesizing fixed-cavity instruments, they are inadequate for vocal synthesis. We need something more powerful than a parametric EQ…</p>
+      <p>Consider the resonant multi-mode filter shown in <a href="#fig-23-14">Figure 23.14</a>. This offers a band-pass mode with CV control of frequency (Fc), manual control of Level (Gain) and (if coupled to a VCA) CV control of resonance (Q). If used alongside a second VCA that provides dynamic control over amplitude, this could be a satisfactory basis for a ‘formant synthesizer’.</p>
+      <figure id="fig-23-14">
+        <img src="images/fig-23-14.png" />
+        <figcaption>Figure 23.14</figcaption>
+      </figure>
+      <p>Unfortunately, you will require three modules for each formant, with appropriate CVs for each (see <a href="#fig-23-15">Figure 23.15</a>). Although you only need one set of formant filters (remember, the formants remain constant for all pitches), you’ll need to be able to supply all the CVs to change the sound as the note progresses. Furthermore, since <a href="#fig-23-15">Figure 23.15</a> depicts a monophonic instrument, the complexity will increase considerably if you wish to add polyphony. This can lead rapidly to an enormous and unwieldy monstrosity. Nonetheless, there’s no reason why it should not produce, say, a recognisable "aaaa" sound which, by suitable manipulation of the CVs, changes smoothly to an "eeee" sound.</p>
+      <figure id="fig-23-15">
+        <img src="images/fig-23-15.png" />
+        <figcaption>Figure 23.15</figcaption>
+      </figure>
+
+      <h3>But The Sensible Solution Is…</h3>
+      <p>We’ve encountered this spiralling complexity once before in Synth Secrets. It was when we discussed a polyphonic analogue FM synthesizer. While possible, this proved to be totally impractical, and the solution was found in the digital FM technology pioneered by Yamaha and incorporated to such devastating commercial effect in the DX7.</p>
+      <p>Well, we’re going to the same source for the solution to the complexities of formant synthesis. While it has had far less impact than the DX7, Yamaha’s FS1R (reviewed SOS December ‘98) is a superb and under-rated synthesizer designed specifically to imitate the moving formants found in speech, as well as the fixed-frequency formants of acoustic instruments. It even incorporates unpitched operators that can imitate consonants, as well as produce percussion and drum sounds. With real-time processing of the formants’ Fc, Gain, Q, and a parameter called ‘skirt’, it is quite capable of emulating words and phrases – something that you would need a huge assembly of analogue modules to achieve.</p>
+      <p>Finally, let’s take a look at how the FS1R imitates the frequency response of a harmonically rich signal (or noise) passed through a resonant low-pass analogue filter (see <a href="#fig-23-16">Figure 23.16</a>). Yes, yes… we’ve seen it all before, but bear with me one more time.</p>
+      <figure id="fig-23-16">
+        <img src="images/fig-23-16.png" />
+        <figcaption>Figure 23.16</figcaption>
+      </figure>
+      <p>Surprisingly, we can reconstruct this frequency response using just two formants – one with a centre frequency of 0Hz and a Q of, say 0.1, and one with a centre frequency equal to the analogue filter’s Fc, and with a Q of, say, 10 (see <a href="#fig-23-17">Figure 23.17</a>).</p>
+      <figure id="fig-23-17">
+        <img src="images/fig-23-17.png" />
+        <figcaption>Figure 23.17</figcaption>
+      </figure>
+      <p>The result is remarkable. What’s more, we can make the formant-generated sound respond very similarly to the analogue case. To be specific, we can shift the perceived cutoff frequency by moving the centre frequency of the upper formant while narrowing the Q of the lower formant by an appropriate amount. Do this in real time, and you have a sweepable filter. Furthermore, we can increase and decrease the perceived resonance by increasing or decreasing the amplitude of the upper formant alone.</p>
+      <p>So, as has happened so many times before, we’ve come full circle. Analogue and digital synthesis – in this case, digital formant synthesis – are simply different ways of achieving similar results. So what else is new?</p>
+
+      <h3>Footnote</h3>
+      <p>Next month we reach Synth Secrets 24… which means we’ve gone through nearly two years of investigation into some of the fundamentals of sound and synthesis. Not surprisingly, we’ve covered many of the major aspects of the subject, so it’s time to ask, "is this end of our odyssey?".</p>
+      <p>Not a bit of it. However, from now on, we’re going to turn things on their head. Instead of delving into some esoteric aspect of acoustics or electronics and seeing where it takes us, we’re going to select a family of orchestral instruments and see how we can emulate them using our synthesizers. In other words, we’re finally going to get our hands dirty with a bit of genuine synthesis. And where there’s muck, there’s brass…</p>
+      <p>Ever heard a synth talk? If you have, it’s due to formant synthesis. Gordon Reid concludes the purely theoretical part of this series with a look at the theory of analogue formant synthesis, how it relates to the human voice, and modern digital synths like Yamaha’s FS1R.</p>
+    </section>
+  </body>
+</html>

@@ -36,6 +36,7 @@
     <item id="ch019" href="ch019.xhtml" media-type="application/xhtml+xml" />
     <item id="ch020" href="ch020.xhtml" media-type="application/xhtml+xml" />
     <item id="ch021" href="ch021.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch022" href="ch022.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -361,6 +362,24 @@
     <item id="fig-21-12" href="images/fig-21-12.png" media-type="image/png" />
     <item id="tab-21-1" href="images/tab-21-1.png" media-type="image/png" />
     <item id="tab-21-2" href="images/tab-21-2.png" media-type="image/png" />
+
+    <item id="eq-22-1" href="images/eq-22-1.png" media-type="image/png" />
+    <item id="eq-22-2" href="images/eq-22-2.png" media-type="image/png" />
+    <item id="eq-22-3" href="images/eq-22-3.png" media-type="image/png" />
+    <item id="fig-22-1" href="images/fig-22-1.png" media-type="image/png" />
+    <item id="fig-22-2" href="images/fig-22-2.png" media-type="image/png" />
+    <item id="fig-22-3" href="images/fig-22-3.png" media-type="image/png" />
+    <item id="fig-22-4" href="images/fig-22-4.png" media-type="image/png" />
+    <item id="fig-22-5" href="images/fig-22-5.png" media-type="image/png" />
+    <item id="fig-22-6" href="images/fig-22-6.png" media-type="image/png" />
+    <item id="fig-22-7" href="images/fig-22-7.png" media-type="image/png" />
+    <item id="fig-22-8" href="images/fig-22-8.png" media-type="image/png" />
+    <item id="fig-22-9" href="images/fig-22-9.png" media-type="image/png" />
+    <item id="fig-22-10" href="images/fig-22-10.png" media-type="image/png" />
+    <item id="fig-22-11" href="images/fig-22-11.png" media-type="image/png" />
+    <item id="fig-22-12" href="images/fig-22-12.png" media-type="image/png" />
+    <item id="fig-22-13" href="images/fig-22-13.png" media-type="image/png" />
+    <item id="fig-22-14" href="images/fig-22-14.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -386,5 +405,6 @@
     <itemref idref="ch019" linear="yes" />
     <itemref idref="ch020" linear="yes" />
     <itemref idref="ch021" linear="yes" />
+    <itemref idref="ch022" linear="yes" />
   </spine>
 </package>

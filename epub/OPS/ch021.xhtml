@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
+  <head>
+    <title>From Polyphony To Digital Synths</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+  </head>
+
+  <body>
+    <section class="chapter" title="From Polyphony To Digital Synths" epub:type="chapter" id="ch021">
+      <h2 class="title">From Polyphony To Digital Synths</h2>
+
+      <p>Last month, I showed that a truly polyphonic synth must be able to shape the tone and loudness of any sound independently of any other sounds or notes that it is producing at the same time. We then looked at one way in which an analogue synth can achieve this – ie. by providing filters, amplifiers and contour generators for every key on the keyboard. Unfortunately, an instrument of this design is expensive to manufacture, and its complex architecture usually results in unreliability. Moog provided total polyphony in this way on their Polymoog, and sure enough, this keyboard suffered from being too expensive and unreliable.</p>
+      <p>Unsurprisingly, most other manufacturers adopted different ways of circumnavigating this problem – and this month, I’ll try and explain how exactly they did this. However, before considering the most common polyphonic architecture, I would like to look at one of the strangest analogue keyboards ever devised. It’s not particularly obscure, nor very rare, but it has the weirdest architecture I’ve ever encountered. It’s the Crumar Trilogy.</p>
+
+      <h3>Crumar’s Cut-down Paraphonic Approach</h3>
+      <p>To understand the Trilogy fully, you’ll need a quick reminder of the content of last month’s Synth Secrets. <a href="#fig-21-1">Figure 21.1</a> shows the architecture of a ‘divide-down’ paraphonic synth on which only the first note played benefits fully from the Attack and Decay stages of the contour generator, and only the last note benefits from the Release. <a href="#fig-21-2">Figure 21.2</a> depicts a fully polyphonic ‘divide-down’ synthesizer – such as the Polymoog – that offers a VCF/VCA/EG ‘articulator’ board for every note on the keyboard.</p>
+      <figure id="fig-21-1">
+        <img src="images/fig-21-1.png" />
+        <figcaption>Figure 21.1</figcaption>
+      </figure>
+      <figure id="fig-21-2">
+        <img src="images/fig-21-2.png" />
+        <figcaption>Figure 21.2</figcaption>
+      </figure>
+      <p>As I’ve just recapped, the latter is expensive and potentially unreliable. A valid question is therefore: is it possible to devise an analogue synth that combines full polyphony and correct articulation of all notes, but with lower cost and greater reliability? Unfortunately, the answer to this is no, although the Crumar provides a unique and interesting compromise.</p>
+      <p>Let’s go all the way back to octave-divider boards (see <a href="#fig-21-3">Figure 21.3</a>). You’ll remember from last month that each board uses a master oscillator related to a given note on the keyboard, and then ‘divides down’ that frequency to generate all the instances of that note across the keyboard.</p>
+      <figure id="fig-21-3">
+        <img src="images/fig-21-3.png" />
+        <figcaption>Figure 21.3</figcaption>
+      </figure>
+      <p>Now let’s take just one of these boards (the one that creates all the Cs, for example) and give it its own contour generator, filter and amplifier. The result is, in essence, a dedicated paraphonic architecture for all the Cs alone, and it looks like <a href="#fig-21-4">Figure 21.4</a>.</p>
+      <figure id="fig-21-4">
+        <img src="images/fig-21-4.png" />
+        <figcaption>Figure 21.4</figcaption>
+      </figure>
+      <p>If we now stack 12 of these boards – one for each note in the octave– we have a weird synth that articulates every note correctly, provided that you never play more than one instance of any given note. For example, if you play a C1/E1/G1 triad, each note will speak correctly whether you play them simultaneously, as a broken chord, as an arpeggio, or even within a solo. However, the moment that you add another ‘C’ to create the octave chord – C1/E1/G1/C2 – the second ‘C’ cannot be correctly articulated. This is because the appropriate contour generator, filter and amplifier have already received a Gate, and are some way along their ADSR response. I have shown this mythical synthesizer– the ‘GR1’ – in <a href="#fig-21-5">Figure 21.5</a>.</p>
+      <figure id="fig-21-5">
+        <img src="images/fig-21-5.png" />
+        <figcaption>Figure 21.5</figcaption>
+      </figure>
+      <p>The ‘GR1’ is mythical because, to the best of my knowledge, there has never been a commercial synthesizer that works in this way. The Crumar Trilogy, however, came close. If you ignore its organ and string ensemble sections (the basic sounds of which are tapped from the divide-down boards and passed through appropriate treatments to obtain the desired timbres), you find that its architecture looks very similar to the ‘GR1’. However, there are two important differences.</p>
+      <p>Firstly, each set of notes has two independently tunable oscillators. The number of master oscillators and dividers is therefore double that shown in <a href="#fig-21-5">Figure 21.5</a> (see <a href="#fig-21-3">Figure 21.3</a>).</p>
+      <p>The second difference is more radical. In what could only be a cost-cutting exercise, Crumar made the Trilogy not 12x paraphonic, but 6x paraphonic. This means that all the Cs and all the F#s share a contour generator, filter and amplifier, as do all the C#s and Gs, all the Ds and G#s… and so on up the octave (see <a href="#fig-21-6">Figure 21.6</a>).</p>
+      <figure id="fig-21-6">
+        <img src="images/fig-21-6.png" />
+        <figcaption>Figure 21.6</figcaption>
+      </figure>
+      <p>Unconventional though this architecture may be, it remains surprisingly usable. For example, on what other keyboard could you hold a drone – say, a low C – and play a solo above it which retriggers the drone every time that you play another C or an F#, but at no other time? Well… on no other. Add to that the Trilogy’s ability to layer the strings and organ sounds derived from oscillator bank 1, and you have something quite unusual – not quite a true polysynth, but much more than a basic string machine or paraphonic synth.</p>
+      <p>Despite its curiosity value, the Trilogy possesses a structure which is clearly unsuitable for a fully polyphonic analogue synthesizer. Nevertheless, it demonstrates an important consideration in electronic design: if you use fewer components, your product will cost less and will be more reliable, all other things being equal.</p>
+
+      <h3>Oberheim &amp; The SEM</h3>
+      <p>So let’s look at polyphony a different way – the way Oberheim chose to in the mid-’70s. Remember, for every note played on a fully polyphonic instrument, you need a dedicated sound source, dedicated filters, dedicated amplifiers, and dedicated contour generators. So how about cutting down on components, by reducing the amount of polyphony and then assigning a complete synthesizer ‘voice’ to each note as you play it? This seems like a good idea, but it raises problems of its own. In particular, if we’re going to limit the polyphony to just a handful of notes… which handful do we choose? Of course, the answer to this has to be ‘whichever ones you happen to be pressing at any given moment’ – otherwise, the synth is unplayable!</p>
+      <p>The first affordable synth that allocated voices to notes was the Oberheim 4-Voice, and we’re going to see how it did this. But before going any further, here’s a health warning for analogue anoraks: for the first time in Synth Secrets, we’re going to take a detour into some real digital electronics. This is unavoidable, because logic circuits are the only practical and economical way to determine which keys are depressed at any given moment on a polyphonic keyboard (this also explains why there were no polyphonic synthesizers before 1974… the necessary technology did not exist!).</p>
+
+      <h3>Binary Numbers &amp; Keyboard Scanning</h3>
+      <p>I’ll start by refreshing your knowledge of binary numbers. As you know, binary is simply a number system, just like the decimal system used in everyday life. However, instead of counting from zero to nine before adding a new column, as in decimal, we only count from zero to one before adding a new column. Consequently, whereas the decimal system counts 0, 1, 2, 3, 4, and so on, binary represents the same numbers as 0, 1, 10, 11, 100… and so on. I have shown the equivalence of some decimal and binary numbers in <a href="#tab-21-1">Table 21.1</a>,</p>
+      <figure id="tab-21-1">
+        <img src="images/tab-21-1.png" />
+        <figcaption>Table 21.1</figcaption>
+      </figure>
+      <p>As you can see, every time a number in binary is depicted using all 1s, we add another column of digits on the left and start again. This should be familiar in principle, as we do the same in decimal counting – when we reach 9, 99 or 999, we add a new column and start again at 10, 100 or 1000.</p>
+      <p>In digital electronics, people don’t talk in terms of ‘digits’, but instead of ‘bits’. Moreover, for any given number of bits we add all the leading zeroes to the binary number. Therefore, taking a decimal number from <a href="#tab-21-1">Table 21.1</a> – say, six – and writing it as an eight-bit binary value, we would write this not as 110, but as 00000110.</p>
+
+      <h3>The 6-Bit Keyboard Decoder</h3>
+      <p>As we’ve discussed, binary numbers deal only with zeros and ones. But take a mental leap to the left, and you can just as easily say that binary numbers deal only with either/or states. These could be ‘high’ and ‘low’ voltages, or ‘open’ and ‘closed’ or ‘on’ and ‘off’ switch positions. And (ignoring for now such complications as velocity sensitive and pressure sensitivity) a keyboard is merely a rack of well-engineered on/off switches. So, here’s another question: is it possible to devise a method that expresses the on/off status of a bunch of keys by representing them as a series of zeroes and ones?</p>
+      <p>The answer lies in <a href="#fig-21-7">Figure 21.7</a>, which represents the ‘digitally scanned polyphonic keyboard’ developed in 1973 by Dave Rossum and Scott Wedge of Eµ (later renamed Emu) Systems.</p>
+      <figure id="fig-21-7">
+        <img src="images/fig-21-7.png" />
+        <figcaption>Figure 21.7</figcaption>
+      </figure>
+      <p>If you’ve never studied digital electronics, you might think that you can’t possibly understand this diagram, but I assure you that you can. Stick with me for a while longer, and I’ll demonstrate how the 24 switches on the far right of  <a href="#fig-21-7">Figure 21.7</a> can be used as the key contacts of a polyphonic synthesizer. Furthermore, I will perform magic, and show you that the single data line Z can carry all the information needed to tell the instrument which combination of keys is pressed at any given time.</p>
+      <p>But before moving on, we’ve got to discard all our previous understanding of monophonic and duophonic keyboard mechanisms. On most of these, the action of depressing a key closes a set of contacts that determine a pitch CV, as well as firing off a Gate and/or Trigger pulse. In contrast, a polyphonic keyboard scanning system must – by its very nature – relegate the keys to a passive role. The active element in the system is the digital (ie. binary) scanning circuit that recognises whether you have pressed any keys or not.</p>
+      <p>Now let’s return to <a href="#fig-21-7">Figure 21.7</a>. We’ll start by considering what happens in Decoder X if you treat the three inputs D, E and F as a binary number. Let’s assume that, if the voltage at the input is ‘high’ (+5V) it represents a 1 and if it is ‘low’ (0V) it represents a 0. Since there are three lines, we can use them to represent a 3-bit binary number. <a href="#tab-21-2">Table 21.2</a> below shows all the possible values.</p>
+      <figure id="tab-21-2">
+        <img src="images/tab-21-2.png" />
+        <figcaption>Table 21.2</figcaption>
+      </figure>
+      <p>Clearly, the three bits give a maximum of eight possibilities (including zero) so the three inputs D, E and F can determine which of (up to) eight outputs from Decoder X can be set ‘high’ at any given moment.</p>
+      <p>Now let’s look at the lines A, B, and C. These are routed to each of the subsidiary decoders, Decoder 1, Decoder 2, and Decoder 3. Again, they can represent the eight numbers from zero to seven. Therefore, Decoder 1 sets its ‘0’ output high when it receives ‘000’ from A, B and C. It sets output ‘1’ high when it receives ‘001’ from A, B, and C… and so on.</p>
+      <p>The extra element is the line X0 that leads from Decoder X to Decoder 1. This is an ‘enable’ line, and it ensures that Decoder 1 will only do its stuff when X0 is ‘high’. Likewise, Decoder 2 is only active when X1 is ‘high’, and so on.</p>
+      <p>Still with me? If so, let’s now analyse what happens as we count in binary across the six data lines, D, E, F, A, B, and C:</p>
+      <ul>
+        <li>With DEF = 000, Decoder 1 is enabled, and A, B and C count from 0 to 7, in turn setting the voltage ‘high’ on the input to each of the switches 0 to 7.</li>
+        <li>When the count reaches 000111, it continues from 001000.</li>
+        <li>With DEF = 001, Decoder 2 is enabled, and A, B and C count from 0 to 7, in turn setting the voltage ‘high’ on the input to each of the switches 8 to 15.</li>
+        <li>When the count reaches 001111, it continues from 010000.</li>
+        <li>With DEF = 010, Decoder 3 is enabled, and A, B and C count from 0 to 7, in turn setting the voltage ‘high’ on the input to each of the switches 16 to 23.</li>
+        <li>When the count reaches 010111, the system resets to 000000 and the cycle begins anew. Mind you, if I had enough paper, I could count up to 111111, use eight subsidiary decoders, and have a maximum of 64 switches!</li>
+      </ul>
+      <p>Now for the final piece of the jigsaw. Let’s say that, for example, the input data DEFABC is 001001. This means that Decoder X enables Decoder 2, and that key 9 is ‘high’. The important thing here is that, across the whole keyboard (yes… those switches in <a href="#fig-21-7">Figure 21.7</a> represent real keys on a synth keyboard) only key 9 is ‘high’. But if you don’t have key 9 depressed at that moment, the switch is open, and the voltage on the Z line (the output) remains ‘low’. If, on the other hand, the key is depressed, the voltage on Z is ‘high’, and the system detects the status of the pressed key.</p>
+      <p>This result is beautifully simple and elegant. Simply by counting in binary from 000000 to 111111 we can cycle through all the keys on (up to) a 64-note keyboard, detecting in turn whether each key is depressed or not. The digital electronics in the synthesizer monitors line Z, and knows that a ‘high’ value at any given instant in the scanning cycle represents a specific pressed key. And, if we want to scan a wider keyboard, we just add more bits to the address lines. It’s brilliant!</p>
+
+      <h3>Phew! Now Back To ‘70s Oberheims…</h3>
+      <p>All the Oberheims sold from 1974 to 1977 were based upon monophonic modules called SEMs (Synthesizer Expander Modules). Each SEM offered two oscillators, a multi-mode filter, an LFO, two contour generators, and an amplifier (see <a href="#fig-21-8">Figure 21.8</a>).</p>
+      <figure id="fig-21-8">
+        <img src="images/fig-21-8.png" />
+        <figcaption>Figure 21.8</figcaption>
+      </figure>
+      <p>The 4-Voice had, as you may have guessed, four of these, each with CV and Gate inputs. This would suggest that, thanks to the digital scanning technique, it was possible to access each of the SEMs from the keyboard, as shown in <a href="#fig-21-9">Figure 21.9</a>.</p>
+      <figure id="fig-21-9">
+        <img src="images/fig-21-9.png" />
+        <figcaption>Figure 21.9</figcaption>
+      </figure>
+      <p>Of course, it’s one thing to be able to say which keys are depressed at any given moment, but that’s a far cry from generating the CVs, Gates and Triggers that tell a bunch of SEMs which notes to play. <a href="#fig-21-9">Figure 21.9</a> must be missing something…</p>
+      <p>The missing element is the so-called Voice Allocation Unit. You’ll be pleased to know that the circuitry of this is too complex to discuss here, but the principle of its action is simple enough: it takes the note information generated by the decoder, checks to see whether there are any unused SEMs available, and then generates and sends the CV and Gate information to those SEMs. Of course, this isn’t the end of the story. Matters are complicated considerably by a Split mode that divides the keyboard into two virtual keyboards, each with a predetermined number of SEMs allocated to them. Then there is Unison. This layers the voices on top of each other, reducing polyphony to just one note (ie. monophony).</p>
+      <p>But, ignoring these additional complications, let’s consider the result of playing more notes than the synthesizer has voices. In the case of a 4-Voice, what happens when you press five notes simultaneously?</p>
+      <p>The answer to this depends upon the way in which the Voice Allocation Unit allocates the SEMs. For example, the 4-Voice offers one option in which it will cycle through each voice in turn. If you press just one note at a time, this means that the SEMs are allocated 1-2-3-4-1-2-3-4… and so on, as you play. But when you hold the first four notes, this system leads to ‘note stealing’ if you press a fifth key simultaneously (see <a href="#fig-21-10">Figure 21.10</a>).</p>
+      <figure id="fig-21-10">
+        <img src="images/fig-21-10.png" />
+        <figcaption>Figure 21.10</figcaption>
+      </figure>
+      <p>One way round this is to give earlier notes priority over later ones. This is the ‘first-note priority’ system discussed in Part 18 of this series (see SOS October 2000) but now applied polyphonically. Unfortunately, this will delay the onset of later notes, and the results may be even less desirable than note stealing (see <a href="#fig-21-11">Figure 21.11</a>).</p>
+      <figure id="fig-21-11">
+        <img src="images/fig-21-11.png" />
+        <figcaption>Figure 21.11</figcaption>
+      </figure>
+      <p>As you can see from <a href="#fig-21-9">Figure 21.9</a>, the Oberheim 4-Voice was, in essence, four independent monosynths screwed into a wooden case together with a digitally scanned keyboard and its associated electronics. This meant that you had to set up all of the SEMs identically to play it as a conventional polyphonic instrument. Given the vagaries of this vintage of analogue electronics, this was all but impossible. SEMs are not famous for their stability, and getting four of them to stay in tune, correctly scaled, let alone with identical filter and contour characteristics… well, you could forget that! It’s small wonder that few players took advantage of the synth’s polyphonic potential. Indeed, some players just programmed each of the SEMs individually, and – in Unison mode – played the 4-Voice as one of the most overpowering monosynths of all time.</p>
+      <p>A year after its initial release in 1974, Oberheim added a 16-memory programmer to the 4-Voice, which should have solved the first problem (ie. setting the individual SEMs to the same sound for polyphonic use). Unfortunately, the programmer was unable to store and recall all of the parameters relating to a patch. Most seriously, it could not remember the resonance or the filter type selected.</p>
+      <p>The basic structure of the 4-Voice can be seen in <a href="#fig-21-12">Figure 21.12</a>. Amazingly, the keyboard scanning and voice allocation functions are carried out entirely in hardware, with logic gates determining which keys have been pressed, which SEMs are available, and how the two should be paired together. In 1976, Emu picked up the baton of progress, took a huge leap for synthesis and adopted a microprocessor as the ‘brain’ of their 4060 keyboard – the same microprocessor that, in 1977, went on to become the basis for Sequential’s Prophet 5.</p>
+      <figure id="fig-21-12">
+        <img src="images/fig-21-12.png" />
+        <figcaption>Figure 21.12</figcaption>
+      </figure>
+      <p>But why stop there? If you’d worked out a mechanism for scanning the voltage status of a bunch of key switches (’high’ or ‘low’) surely you could use the same mechanism to determine the states of front-panel switches such as voice selectors? Sure you could! For that matter, is there any reason why you couldn’t then use it to measure voltages other than 0V or +5V? To put it another way, could you not use it to measure the settings of the knobs and faders on the synthesizer’s control panel? You certainly could. Not only that but, using a suitable A-D converter, you could translate these values into a digital format suitable for storing in computer memory. And of course, people did. Blimey! This month, I’ve not only stumbled upon the secrets of practical polyphony, but also the way to design analogue synthesizers with memories.</p>
+
+      <aside>
+        <h4>Random Voice Assignment</h4>
+        <p>If you open a vintage polysynth such as an Oberheim OB8, you’ll see on each voice board an LED that tells you whether this voice is playing or not. You can then press a succession of keys and see the LEDs march across the synth from 1 to 6 (or 1 to 8) before starting back at voice 1 again. If you hold a four-note chord, you can see, say, voices 1 to 4 light up, and then voices 5 to 8 (or whatever) cycle as before.</p>
+        <p>However, on a couple of early polysynths, the voices do not always rotate in such a strict, cyclic fashion, and this offers an unexpected benefit. Each of the voices in an analogue instrument will sound slightly different from the others – maybe with a different amount of detune, or with filters that are slightly more open or closed. These differences, if they are not too extreme, are a major source of the so-called ‘organic’ warmth of vintage polysynths.</p>
+        <p>Nevertheless, if the voices always play in the same order, you may occasionally hear a disturbing consistency as you perform, especially if you’re playing a solo line. Let’s suppose that voice three of a six-voice synth is slightly more ‘open’ than the others. If the voices speak in strict rotation, you’ll hear your solo doing something like this: ‘do-do-dee-do-do-do… do-do-dee-do-do-do…’ This will place your performance firmly within electronic territory.</p>
+        <p>But if the synth’s voices do not cycle in a predictable fashion, the same line may go: ‘do-dee-do-do-dee-do… do-do-do-do-do-dee…’ which will be much closer to the natural variations of tone and tuning of a ‘real’ musical performance.</p>
+        <p>Nowadays, of course, digital synths have ‘analogue feel’ parameters that add small random fluctuations to the sound, giving rise to much the same effect.</p>
+      </aside>
+
+      <p>So consider this… If a polyphonic synth allocates a limited number of voices to the notes as you play, it contains a significant amount of digital circuitry. Likewise, if a polyphonic synth has switches that select between preset patches, it contains a significant amount of digital circuitry. Similarly, if a polyphonic synth has user-programmable memories, it too contains a significant amount of digital circuitry. Therefore, a totally analogue polysynth can only be one that offers total polyphony provided by independent articulators for each note, and which has no presets and no memories. So here’s this month’s synth secret:</p>
+      <p>In mainstream synthesis, there have only ever been two totally analogue polysynths: the Korg PS3100 and PS3300.</p>
+
+      <h3>A Real Example</h3>
+      <p>To finish this month’s article, let’s look at a real synth – the Sequential Circuits Prophet 600 – to illustrate all the above.</p>
+      <p>Released in 1983, this has six analogue voices that – unlike SEMs – are carefully calibrated to sound as close to identical as possible. However, the 600 uses a Z80 microprocessor to scan the keyboard, scan the control panel, and manage its 100 memories. The Z80 is even pressed into sound generation (as opposed to sound control) duties, calculating software-generated contours and LFOs that are applied to the synth’s analogue VCOs, VCFs and VCAs. It all works like this…</p>
+      <p>Every 200th of a second the Z80 calculates the values of the envelope generators, the LFOs and the effect (if any) of glide. It then refreshes the LEDs on the top panel, looks at either the pitch-bend or modulation wheel, refreshes a number of the internal control voltages, and then checks one (and only one) of the control panel knobs. Next, it scans the keyboard and, if you’ve played a note during that period, works out the voice assignments. This means that – depending upon the exact moment at which you press a key – your playing may be delayed by up to 5mS. You can also detect the consequences of the scanning and calculating when you adjust the 600’s control knobs by small amounts. Listen carefully, and you can hear the effect as the processor jumps from value to value. This is one source of the famous ‘digital zipper noise’.</p>
+      <p>Nowadays, keyboard scanning, note allocation, and numerous other functions are controlled by firmware within special chips called ASICs – Application Specific Integrated Circuits. You can think of these as dedicated microprocessors that have been pre-programmed to perform specific tasks). This is as true for the modern generation of analogue polysynths – for example, the Studio Electronics Omega 8 and the forthcoming Alesis Andromeda – as it is for the plethora of virtual analogue (VA) synths and digital workstation keyboards.</p>
+    </section>
+  </body>
+</html>

@@ -34,6 +34,7 @@
     <item id="ch017" href="ch017.xhtml" media-type="application/xhtml+xml" />
     <item id="ch018" href="ch018.xhtml" media-type="application/xhtml+xml" />
     <item id="ch019" href="ch019.xhtml" media-type="application/xhtml+xml" />
+    <item id="ch020" href="ch020.xhtml" media-type="application/xhtml+xml" />
 
     <!-- styles -->
     <item id="stylesheet" href="css/book.css" media-type="text/css" />
@@ -330,6 +331,20 @@
     <item id="fig-19-11" href="images/fig-19-11.png" media-type="image/png" />
     <item id="fig-19-12" href="images/fig-19-12.png" media-type="image/png" />
     <item id="fig-19-13" href="images/fig-19-13.png" media-type="image/png" />
+
+    <item id="fig-20-1" href="images/fig-20-1.png" media-type="image/png" />
+    <item id="fig-20-2" href="images/fig-20-2.png" media-type="image/png" />
+    <item id="fig-20-3" href="images/fig-20-3.png" media-type="image/png" />
+    <item id="fig-20-4" href="images/fig-20-4.png" media-type="image/png" />
+    <item id="fig-20-5" href="images/fig-20-5.png" media-type="image/png" />
+    <item id="fig-20-6" href="images/fig-20-6.png" media-type="image/png" />
+    <item id="fig-20-7" href="images/fig-20-7.png" media-type="image/png" />
+    <item id="fig-20-8" href="images/fig-20-8.png" media-type="image/png" />
+    <item id="fig-20-9" href="images/fig-20-9.png" media-type="image/png" />
+    <item id="fig-20-10" href="images/fig-20-10.png" media-type="image/png" />
+    <item id="fig-20-11" href="images/fig-20-11.png" media-type="image/png" />
+    <item id="fig-20-12" href="images/fig-20-12.png" media-type="image/png" />
+    <item id="fig-20-13" href="images/fig-20-13.png" media-type="image/png" />
   </manifest>
 
   <spine>
@@ -353,5 +368,6 @@
     <itemref idref="ch017" linear="yes" />
     <itemref idref="ch018" linear="yes" />
     <itemref idref="ch019" linear="yes" />
+    <itemref idref="ch020" linear="yes" />
   </spine>
 </package>

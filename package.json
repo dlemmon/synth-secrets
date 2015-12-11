@@ -1,0 +1,32 @@
+{
+  "name": "synth-secrets-scrap",
+  "version": "1.0.0",
+  "description": "I’m currently reading the fantastic [Synth Secrets](http://www.soundonsound.com/sos/allsynthsecrets.htm) series from **Sound On Sound** magazine, written by Gordon Reid.",
+  "main": "scrap-sos-page.js",
+  "dependencies": {
+    "jsdom": "^7.0.2",
+    "sanitize-html": "^1.11.1",
+    "request": "^2.67.0",
+    "sanitizer": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlemmon/synth-secrets.git"
+  },
+  "keywords": [
+    "scraper",
+    "node",
+    "synth",
+    "secrets"
+  ],
+  "author": "dlemmon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlemmon/synth-secrets/issues"
+  },
+  "homepage": "https://github.com/dlemmon/synth-secrets#readme"
+}

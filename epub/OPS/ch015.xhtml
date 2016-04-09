@@ -47,7 +47,7 @@
       </figure>
 
       <p>You should now be able to see that the slew generator is simply a low-pass filter, albeit one with a handful of specialised uses. (On most analogue synthesizers, it’s a 6dB/oct low-pass filter with cutoff frequency variable in the range 0Hz to approximately 1kHz.)</p>
-      <p>You will most commonly encounter a slew generator in its role as a ‘portamento’ circuit, smoothing the transition from one keyboard-generated pitch CV to another. However, whenit’s hooked up to a pitch/CV converter, the slew generator’s raison d’être is to remove the inevitable glitches that occur when the pitch detector loses lock on the desired signal. (Without the slew generator, the output CV would jump around wildly until lock was re-established.)</p>
+      <p>You will most commonly encounter a slew generator in its role as a ‘portamento’ circuit, smoothing the transition from one keyboard-generated pitch CV to another. However, when it’s hooked up to a pitch/CV converter, the slew generator’s raison d’être is to remove the inevitable glitches that occur when the pitch detector loses lock on the desired signal. (Without the slew generator, the output CV would jump around wildly until lock was re-established.)</p>
       <p>Moving on, we can enhance <a href="#fig-15-3">Figure 15.3</a> and improve the converter’s performance still further. To be specific, we add a band-pass filter to create a narrow ‘pass band’ of accepted frequencies (see <a href="#fig-15-5">Figure 15.5</a>). This reduces the risk of extraneous signals or high-amplitude harmonics confusing the pitch detector.</p>
       <figure id="fig-15-5">
         <img src="images/fig-15-5.png" />
